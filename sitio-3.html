@@ -129,7 +129,7 @@
         }
         
         #navbar {
-            background-color: transparent;
+            background-color: transparent !important;
         }
         
         /* Dark Theme (For dark sections) */
@@ -159,37 +159,33 @@
         #navbar.theme-light .nav-btn:hover { background-color: #111827; color: #ffffff; }
 
         /* Navy Gradient Theme Navbar & Text */
-        .theme-navy-gradient {
-            border-color: rgba(30, 58, 138, 0.15) !important;
+        #navbar.theme-navy-gradient {
+            border-color: rgba(30, 58, 138, 0.15);
         }
-        .theme-navy-gradient .nav-logo,
-        .theme-navy-gradient .nav-link {
+        #navbar.theme-navy-gradient .nav-logo,
+        #navbar.theme-navy-gradient .nav-link,
+        #navbar.theme-navy-gradient .nav-btn {
             background-image: linear-gradient(135deg, #1e3a8a 0%, #000000 100%) !important;
-            -webkit-background-clip: text !important;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
+            background-clip: text;
             color: transparent !important;
         }
-        .theme-navy-gradient .nav-btn {
-            background-image: linear-gradient(135deg, #1e3a8a 0%, #000000 100%) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            background-clip: text !important;
-            color: transparent !important;
-            border-color: #1e3a8a !important;
+        #navbar.theme-navy-gradient .nav-btn {
+            border-color: #1e3a8a;
         }
-        .theme-navy-gradient .nav-btn:hover {
+        #navbar.theme-navy-gradient .nav-btn:hover {
             background-image: linear-gradient(135deg, #1e3a8a 0%, #000000 100%) !important;
-            -webkit-text-fill-color: #ffffff !important;
-            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff;
+            color: #ffffff;
         }
         
         .text-navy-gradient {
             background-image: linear-gradient(135deg, #1e3a8a 0%, #09090b 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent !important;
             background-clip: text;
-            color: transparent;
+            color: transparent !important;
         }
 
         /* Custom scrollbar */
@@ -208,7 +204,7 @@
 <body class="antialiased selection:bg-indigo-500 selection:text-white">
 
     <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b theme-dark px-8 lg:px-20" id="navbar">
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 theme-dark px-8 lg:px-20" id="navbar">
         <div class="max-w-7xl mx-auto w-full h-28 flex items-center justify-between">
             <a href="#hero" class="nav-logo text-[27px] md:text-[32px] font-medium tracking-tight lowercase text-left flex justify-start items-center" style="font-family: 'Cal Sans', sans-serif; font-weight: 500;">
                 blueorder
@@ -479,13 +475,8 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const theme = entry.target.getAttribute('data-theme');
-                        if (theme === 'light') {
-                            nav.classList.remove('theme-dark');
-                            nav.classList.add('theme-light');
-                        } else {
-                            nav.classList.remove('theme-light');
-                            nav.classList.add('theme-dark');
-                        }
+                        nav.classList.remove("theme-light", "theme-dark", "theme-navy-gradient");
+                        nav.classList.add("theme-" + theme);
                     }
                 });
             }, observerOptions);
