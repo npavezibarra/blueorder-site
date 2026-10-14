@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blueorder</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        logo: ['"Cal Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Clarity+City:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./components/blueorder-flow.css">
+    <link rel="stylesheet" href="./components/blueorder-flow-dark.css">
+    <link rel="stylesheet" href="./components/blueorder-prototype-sections.css">
+    <link rel="stylesheet" href="./components/blueorder-prototype-sections-dark.css">
+    <style>
+        /* Custom Font Utility Classes */
+        .clarity-city {
+            font-family: "Clarity City", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        .nanum-myeongjo-regular {
+            font-family: "Nanum Myeongjo", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .cal-sans-regular {
+            font-family: "Cal Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c16;
+            color: #f3f4f6;
+        }
+
+        /* 1. Hero image background */
+        .hero-polymorphic-bg {
+            background-color: #0c102b;
+            background-image:
+                linear-gradient(90deg, rgba(7, 10, 30, 0.58) 0%, rgba(7, 10, 30, 0.28) 58%, rgba(7, 10, 30, 0.18) 100%),
+                url('./hero-bg-6.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Polymorphic blurred glowing shapes */
+        .blob-1 {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 55vw;
+            height: 55vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(30, 58, 138, 0.2) 60%, transparent 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            animation: morph 12s ease-in-out infinite alternate;
+        }
+
+        .blob-2 {
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 65vw;
+            height: 65vw;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, rgba(185, 28, 28, 0.25) 50%, transparent 100%);
+            border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            animation: morph 15s ease-in-out infinite alternate-reverse;
+        }
+
+        .blob-3 {
+            position: absolute;
+            top: 30%;
+            right: 20%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.35) 0%, transparent 70%);
+            border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+            filter: blur(70px);
+            pointer-events: none;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+                transform: translate(0px, 0px) scale(1);
+            }
+            50% {
+                border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+                transform: translate(30px, -20px) scale(1.08);
+            }
+            100% {
+                border-radius: 50% 50% 40% 60% / 40% 60% 50% 60%;
+                transform: translate(-20px, 30px) scale(0.95);
+            }
+        }
+
+        /* 2. Second gradient: Deep night solid/subtle dark */
+        .bg-night-gradient {
+            background: #151120;
+        }
+
+        /* 3. Third gradient: Soft pastel violet to peach */
+        .bg-grad-3 {
+            background: linear-gradient(135deg, #8f85b8 0%, #dfb599 50%, #f7f1ec 100%);
+        }
+
+        /* 4. Fourth gradient: Deep midnight blue */
+        .bg-grad-4 {
+            background: linear-gradient(180deg, #1e1b38 0%, #0e0c1a 100%);
+        }
+
+        /* Navbar Transitions & Themes */
+        #navbar, #navbar * {
+            transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.3s ease;
+        }
+
+        #navbar {
+            background-color: transparent;
+        }
+
+        /* Dark Theme (For dark sections) */
+        #navbar.theme-dark {
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+        #navbar.theme-dark.scrolled {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        #navbar.theme-dark .nav-logo { color: #ffffff; }
+        #navbar.theme-dark .nav-link { color: #ffffff; } /* neutral-300 */
+        #navbar.theme-dark .nav-link:hover { color: #ffffff; }
+        #navbar.theme-dark .nav-btn { color: #ffffff; border-color: rgba(255, 255, 255, 0.2); }
+        #navbar.theme-dark .nav-btn:hover { background-color: #ffffff; color: #0b0c16; }
+
+        /* Light Theme (For light sections) */
+        #navbar.theme-light {
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+        #navbar.theme-light.scrolled {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        #navbar.theme-light .nav-logo { color: #111827; } /* gray-900 */
+        #navbar.theme-light .nav-link { color: #4b5563; } /* gray-600 */
+        #navbar.theme-light .nav-link:hover { color: #000000; }
+        #navbar.theme-light .nav-btn { color: #111827; border-color: rgba(17, 24, 39, 0.2); }
+        #navbar.theme-light .nav-btn:hover { background-color: #111827; color: #ffffff; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111022;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #37305a;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b theme-dark px-8 lg:px-20" id="navbar">
+        <div class="max-w-7xl mx-auto w-full h-28 flex items-center justify-between">
+            <a href="#hero" class="nav-logo text-[27px] md:text-[32px] font-medium tracking-tight lowercase text-left flex justify-start items-center" style="font-family: 'Cal Sans', sans-serif; font-weight: 500;">
+                blueorder
+            </a>
+            <nav class="hidden md:flex space-x-12 text-xs font-medium tracking-wide uppercase">
+                <a href="#hero" class="nav-link">Overview</a>
+                <a href="#system" class="nav-link">The System</a>
+                <a href="#workflow" class="nav-link">Workflow</a>
+                <a href="#contact" class="nav-link">Engage</a>
+            </nav>
+            <a href="#contact" class="nav-btn text-xs uppercase font-medium tracking-wider px-6 py-3 rounded-full border">
+                Get Started
+            </a>
+        </div>
+    </header>
+
+    <main class="bo-dark-page">
+        <div class="bo-dark-page-atmosphere" aria-hidden="true"></div>
+        <!-- SECCION 1: Polymorphic Blue & Red Gradient Mesh -->
+        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 hero-polymorphic-bg" data-theme="dark">
+            <!-- Ambient SVG Network Background Layer -->
+            <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <svg class="network-svg w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="lineGradHero" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.55"></stop>
+                            <stop offset="100%" stop-color="#c084fc" stop-opacity="0.25"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <div class="max-w-7xl mx-auto w-full my-auto py-24 relative z-10">
+                <div class="inline-block text-xs uppercase tracking-widest text-indigo-200 mb-12 font-semibold">
+                    What We Do &mdash; Page Introduction
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.12] mb-16 text-white max-w-5xl">
+                    Elevate the way work gets done.
+                </h1>
+
+                <div class="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-neutral-200 max-w-4xl">
+                    <p>
+                        We help you build AI agents that connect your data, documents, and operating knowledge—so your team can find answers faster, reduce repeated work, and move the business forward.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-neutral-300 uppercase tracking-widest pt-16 border-t border-white/20 relative z-10">
+                <span>Section 01 / 04</span>
+                <a href="#system" class="hover:text-white transition-colors flex items-center gap-2">
+                    Scroll to The System <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="knowledge-flow" class="bo-diagram-section bo-diagram-section--dark" data-theme="dark" aria-label="BlueOrder knowledge flow">
+            <div class="bo-network-layer" aria-hidden="true">
+                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradDiagram" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.42"></stop>
+                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.18"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <blueorder-flow flow-id="bo-dark-flow"></blueorder-flow>
+        </section>
+
+        <div class="bo-prototype-sections" data-theme="dark">
+            <div class="bo-network-layer" aria-hidden="true">
+                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradPrototype" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.38"></stop>
+                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.16"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <section class="bo-principles" id="principles" aria-labelledby="principles-title">
+                <div class="bo-principles-heading"><span class="bo-index">PRINCIPLES</span><h2 id="principles-title">A useful system keeps people in the loop.</h2></div>
+                <div class="bo-principles-grid">
+                    <article class="bo-principle-card bo-principle-knowledge"><div class="bo-principle-top"><span class="bo-index">01</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Trusted knowledge</h3><p>Use approved sources, shared definitions, and visible evidence. When information is incomplete or conflicting, the system should say so.</p></article>
+                    <article class="bo-principle-card bo-principle-repeatable"><div class="bo-principle-top"><span class="bo-index">02</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Repeatable work</h3><p>Turn proven methods into reusable instructions, tools, and checks so good work can travel across people and teams.</p></article>
+                    <article class="bo-principle-card bo-principle-judgment"><div class="bo-principle-top"><span class="bo-index">03</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Human judgment</h3><p>AI supports the work. People remain responsible for interpretation, approval, and important decisions.</p></article>
+                </div>
+            </section>
+
+            <section class="bo-engagement" id="workflow" aria-labelledby="workflow-title">
+                <div class="bo-principles-heading"><span class="bo-index">THE CLIENT WORKFLOW</span><h2 id="workflow-title">How an engagement works.</h2></div>
+                <div class="bo-engagement-grid">
+                    <article class="bo-engagement-card"><span class="bo-index">01</span><h3>Assess</h3><p>Choose one recurring business question. Review the relevant sources, definitions, people, access requirements, current effort, and operating costs.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">02</span><h3>Build together</h3><p>Organize the knowledge, configure the retrieval and tools the workflow actually needs, and create a bounded agent or process with the client team.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">03</span><h3>Test and practice</h3><p>Run representative questions, compare results with approved sources or calculations, test failure cases, and practice with real participants.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">04</span><h3>Hand over</h3><p>Transfer the working assets, maintenance guidance, evaluation cases, and cost controls so the client can operate and improve the system.</p></article>
+                </div>
+                <a class="bo-engagement-cta" href="#contact">Explore what we do <span aria-hidden="true">↗</span></a>
+            </section>
+
+            <section class="bo-contact" id="contact" aria-labelledby="contact-title">
+                <div class="bo-contact-heading"><span class="bo-index">START A CONVERSATION</span><h2 id="contact-title">Bring one recurring question.</h2><p>We’ll help you find a useful place to start.</p></div>
+                <div class="bo-contact-grid">
+                    <form class="bo-contact-form" action="#" method="post" onsubmit="return false">
+                        <div class="bo-form-row"><label>First name<input name="firstName" autocomplete="given-name" required></label><label>Last name<input name="lastName" autocomplete="family-name" required></label></div>
+                        <label>Email<input type="email" name="email" autocomplete="email" required></label>
+                        <label>What would you like to improve?<textarea name="message" rows="3" placeholder="A recurring report, review, or question…" required></textarea></label>
+                        <button type="submit">Send a note <span aria-hidden="true">↗</span></button>
+                    </form>
+                    <div class="bo-calendly" aria-label="Schedule a conversation">
+                        <div class="bo-calendly-top"><span class="bo-calendly-mark" aria-hidden="true">✳</span><div><strong>BlueOrder</strong><span>Introductory conversation</span></div></div>
+                        <div class="bo-calendly-body"><span class="bo-calendly-kicker">CHOOSE A TIME</span><p>Prefer to talk now?</p><a href="#calendly-placeholder">Open the calendar <span aria-hidden="true">↗</span></a><small id="calendly-placeholder">Calendly link will be connected here.</small></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECCION 2 -->
+        <section id="system" class="min-h-screen bg-night-gradient text-neutral-100 flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="dark">
+            <div class="bo-network-layer" aria-hidden="true">
+                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradSystem" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.34"></stop>
+                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.14"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="inline-block text-xs uppercase tracking-widest text-indigo-300/70 mb-12 font-semibold">
+                    Architecture &mdash; The System
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 pt-8">
+                    <!-- Item 1 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">01</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Sources</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            The documents, datasets, reports, platforms, and expert knowledge required for the selected business question. Sources remain subject to the client’s access rules and approved environment.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">02</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Knowledge channels</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            A maintainable layer that gives scattered information shared meaning. A channel can include definitions, source references, ownership, permissions, freshness, instructions, and review rules for one business topic.
+                        </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">03</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Reusable skills</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            Checked procedures for recurring work: what the task is, which sources to use, which calculations or tools are permitted, what the output should contain, and how the result is reviewed.
+                        </p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">04</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Agents and tools</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            An AI agent uses the approved context and procedures to carry out bounded work. Where exact figures matter, it uses a validated query or calculation rather than guessing from retrieved text.
+                        </p>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">05</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Shared outputs</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            Reports, dashboards, summaries, evidence, and open questions produced in a consistent form that authorized employees can understand and reuse.
+                        </p>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="space-y-6 p-12 lg:p-16 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all">
+                        <span class="text-xs font-mono text-indigo-400 tracking-wider">06</span>
+                        <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white">Human review</h3>
+                        <p class="text-lg font-light leading-relaxed text-neutral-400">
+                            A person checks the result, applies judgment, and remains accountable. A responsible owner reviews changes before they become shared guidance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-neutral-500 uppercase tracking-widest pt-28 border-t border-white/5 mt-32">
+                <span>Section 02 / 04</span>
+                <a href="#workflow" class="hover:text-white transition-colors flex items-center gap-2">
+                    Scroll to Workflow <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="./components/blueorder-flow.js"></script>
+    <script type="module" src="./components/blueorder-dark-parallax.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('navbar');
+
+            // Adjust header shadow on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Intersection Observer to detect section backgrounds
+            const sections = document.querySelectorAll('section[data-theme]');
+
+            const observerOptions = {
+                root: null,
+                // Trigger when a section hits the top 10% of the viewport (where the navbar is)
+                rootMargin: '-10% 0px -90% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const theme = entry.target.getAttribute('data-theme');
+                        if (theme === 'light') {
+                            nav.classList.remove('theme-dark');
+                            nav.classList.add('theme-light');
+                        } else {
+                            nav.classList.remove('theme-light');
+                            nav.classList.add('theme-dark');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Procedural Animation Script for Moving Network Nodes with Mouse Magnetism
+        window.addEventListener('load', () => {
+            function createNetwork(svgElement, groupElement, gradId, motionPreference) {
+                let width = svgElement.clientWidth;
+                let height = svgElement.clientHeight;
+
+                let mouse = { x: -1000, y: -1000, active: false };
+                // The nearest section parent handles mouse events
+                const section = svgElement.closest('section');
+
+                if (section) {
+                    section.addEventListener('mousemove', (e) => {
+                        const rect = svgElement.getBoundingClientRect();
+                        mouse.x = e.clientX - rect.left;
+                        mouse.y = e.clientY - rect.top;
+                        mouse.active = true;
+                    });
+
+                    section.addEventListener('mouseleave', () => {
+                        mouse.active = false;
+                        mouse.x = -1000;
+                        mouse.y = -1000;
+                    });
+                }
+
+                let nodes = [];
+                function initNodes() {
+                    groupElement.innerHTML = '';
+                    nodes = [];
+                    width = svgElement.clientWidth;
+                    height = svgElement.clientHeight;
+
+                    const nodeCount = Math.floor((width * height) / 25000);
+                    for (let i = 0; i < Math.max(15, Math.min(nodeCount, 45)); i++) {
+                        nodes.push({
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            vx: (Math.random() - 0.5) * 0.4,
+                            vy: (Math.random() - 0.5) * 0.4,
+                            radius: (Math.random() * 2 + 1.5) * 0.85,
+                            element: null
+                        });
+                    }
+
+                    nodes.forEach(node => {
+                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        circle.setAttribute('r', node.radius);
+                        circle.setAttribute('fill', '#a5b4fc');
+                        circle.setAttribute('opacity', '0.6');
+                        groupElement.appendChild(circle);
+                        node.element = circle;
+                    });
+                }
+
+                initNodes();
+                window.addEventListener('resize', initNodes);
+
+                function animateNetwork() {
+                    const lines = groupElement.querySelectorAll('line');
+                    lines.forEach(l => l.remove());
+
+                    nodes.forEach(node => {
+                        node.x += node.vx;
+                        node.y += node.vy;
+
+                        if (node.x < 0 || node.x > width) node.vx *= -1;
+                        if (node.y < 0 || node.y > height) node.vy *= -1;
+
+                        if (mouse.active) {
+                            const dxMouse = mouse.x - node.x;
+                            const dyMouse = mouse.y - node.y;
+                            const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                            const magneticRadius = 180;
+
+                            if (distMouse < magneticRadius && distMouse > 5) {
+                                const force = (1 - (distMouse / magneticRadius)) * 0.03;
+                                node.x += dxMouse * force;
+                                node.y += dyMouse * force;
+                            }
+                        }
+
+                        if(node.element) {
+                            node.element.setAttribute('cx', node.x);
+                            node.element.setAttribute('cy', node.y);
+                        }
+                    });
+
+                    const maxDistance = 220;
+                    for (let i = 0; i < nodes.length; i++) {
+                        for (let j = i + 1; j < nodes.length; j++) {
+                            const dx = nodes[i].x - nodes[j].x;
+                            const dy = nodes[i].y - nodes[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+
+                            if (dist < maxDistance) {
+                                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                                line.setAttribute('x1', nodes[i].x);
+                                line.setAttribute('y1', nodes[i].y);
+                                line.setAttribute('x2', nodes[j].x);
+                                line.setAttribute('y2', nodes[j].y);
+                                line.setAttribute('stroke', `url(#${gradId})`);
+                                const opacity = (1 - (dist / maxDistance)) * 0.55;
+                                line.setAttribute('stroke-opacity', opacity);
+                                line.setAttribute('stroke-width', '1.25');
+                                groupElement.insertBefore(line, groupElement.firstChild);
+                            }
+                        }
+                    }
+                    if (!motionPreference.matches) {
+                        requestAnimationFrame(animateNetwork);
+                    }
+                }
+                if (motionPreference.matches) {
+                    animateNetwork();
+                } else {
+                    requestAnimationFrame(animateNetwork);
+                }
+            }
+
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            // Initialize every network layer dynamically.
+            const svgs = document.querySelectorAll('.network-svg');
+            svgs.forEach((svg) => {
+                const group = svg.querySelector('.network-group');
+                const gradId = svg.querySelector('linearGradient').id;
+                createNetwork(svg, group, gradId, reducedMotion);
+            });
+        });
+    </script>
+</body>
+</html>

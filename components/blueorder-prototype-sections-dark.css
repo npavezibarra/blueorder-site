@@ -1,0 +1,137 @@
+/* Dark-page integration for the prototype Principles, Workflow, and Contact sections. */
+.bo-dark-page { position: relative; isolation: isolate; overflow: clip; }
+
+.bo-dark-page-atmosphere {
+    --bo-parallax-y: 0px;
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(180deg, rgba(9, 10, 23, .56) 0%, rgba(14, 15, 31, .72) 38%, rgba(16, 17, 34, .92) 100%),
+        url('../hero-bg-6.jpg');
+    background-position: center calc(50% + var(--bo-parallax-y)), center calc(50% + var(--bo-parallax-y));
+    background-repeat: no-repeat;
+    background-size: cover;
+    will-change: background-position;
+}
+
+.bo-dark-page > section,
+.bo-dark-page > .bo-prototype-sections { position: relative; z-index: 1; }
+
+.bo-dark-page .bo-prototype-sections { position: relative; }
+.bo-dark-page .bo-prototype-sections > section { position: relative; z-index: 1; }
+
+.bo-dark-page #system > *:not(.bo-network-layer) {
+    position: relative;
+    z-index: 1;
+}
+
+.bo-dark-page .bo-diagram-section--dark {
+    background: #16172A;
+}
+
+.bo-dark-page .bo-prototype-sections {
+    background: linear-gradient(180deg, rgba(18, 19, 38, .82), rgba(22, 22, 42, .9));
+}
+
+.bo-dark-page .bo-prototype-sections .bo-principles,
+.bo-dark-page .bo-prototype-sections .bo-engagement,
+.bo-dark-page .bo-prototype-sections .bo-contact {
+    --bo-sans: 'Inter', sans-serif;
+}
+
+.bo-dark-page .bo-prototype-sections .bo-principles,
+.bo-dark-page .bo-prototype-sections .bo-engagement,
+.bo-dark-page .bo-prototype-sections .bo-contact { color: #f4f1ff; }
+.bo-dark-page .bo-prototype-sections .bo-index { color: #b9afe2; }
+.bo-dark-page .bo-prototype-sections .bo-principles-heading h2,
+.bo-dark-page .bo-prototype-sections .bo-contact-heading h2 { color: #f7f4ff; }
+.bo-dark-page .bo-prototype-sections .bo-principle-card,
+.bo-dark-page .bo-prototype-sections .bo-engagement-card,
+.bo-dark-page .bo-prototype-sections .bo-contact-form,
+.bo-dark-page .bo-prototype-sections .bo-calendly {
+    border-color: rgba(211, 205, 239, .18);
+    background: rgba(36, 37, 61, .82);
+    box-shadow: 0 18px 36px -24px rgba(0, 0, 0, .72);
+}
+.bo-dark-page .bo-prototype-sections .bo-principle-card p,
+.bo-dark-page .bo-prototype-sections .bo-engagement-card p,
+.bo-dark-page .bo-prototype-sections .bo-contact-heading p,
+.bo-dark-page .bo-prototype-sections .bo-contact-form label,
+.bo-dark-page .bo-prototype-sections .bo-calendly-top span,
+.bo-dark-page .bo-prototype-sections .bo-calendly-body small { color: #c5c0d7; }
+.bo-dark-page .bo-prototype-sections .bo-principle-mark,
+.bo-dark-page .bo-prototype-sections .bo-calendly-mark { border-color: rgba(211, 205, 239, .38); color: #cbbff2; }
+.bo-dark-page .bo-prototype-sections .bo-principle-mark::before,
+.bo-dark-page .bo-prototype-sections .bo-principle-mark::after { background: #cbbff2; }
+.bo-dark-page .bo-prototype-sections .bo-principle-knowledge .bo-principle-mark::before { box-shadow: 0 4px #cbbff2, 0 8px #cbbff2; }
+.bo-dark-page .bo-prototype-sections .bo-principle-repeatable .bo-principle-mark::before,
+.bo-dark-page .bo-prototype-sections .bo-principle-judgment .bo-principle-mark::before { border-color: #cbbff2; }
+.bo-dark-page .bo-prototype-sections .bo-principle-card h3,
+.bo-dark-page .bo-prototype-sections .bo-engagement-card h3,
+.bo-dark-page .bo-prototype-sections .bo-calendly-top strong,
+.bo-dark-page .bo-prototype-sections .bo-calendly-body p { color: #f7f4ff; }
+.bo-dark-page .bo-prototype-sections .bo-engagement-cta {
+    border-color: rgba(203, 191, 242, .42);
+    background: rgba(80, 73, 118, .22);
+    color: #e5dfff;
+}
+.bo-dark-page .bo-prototype-sections .bo-engagement-cta:hover { background: rgba(125, 113, 173, .34); color: #fff; }
+.bo-dark-page .bo-prototype-sections .bo-contact-form input,
+.bo-dark-page .bo-prototype-sections .bo-contact-form textarea {
+    border-color: rgba(211, 205, 239, .2);
+    background: rgba(15, 16, 31, .72);
+    color: #f7f4ff;
+}
+.bo-dark-page .bo-prototype-sections .bo-contact-form input:focus,
+.bo-dark-page .bo-prototype-sections .bo-contact-form textarea:focus { border-color: #b9afe2; box-shadow: 0 0 0 3px rgba(185, 175, 226, .16); }
+.bo-dark-page .bo-prototype-sections .bo-contact-form button {
+    border-color: rgba(203, 191, 242, .42);
+    background: rgba(101, 91, 148, .38);
+    color: #f4f1ff;
+}
+.bo-dark-page .bo-prototype-sections .bo-contact-form button:hover { background: rgba(132, 119, 190, .5); }
+.bo-dark-page .bo-prototype-sections .bo-calendly-top { border-bottom-color: rgba(211, 205, 239, .16); }
+.bo-dark-page .bo-prototype-sections .bo-calendly-kicker,
+.bo-dark-page .bo-prototype-sections .bo-calendly-body a { color: #d7cdf8; }
+
+.bo-dark-page .bo-prototype-sections .bo-principles,
+.bo-dark-page .bo-prototype-sections .bo-engagement,
+.bo-dark-page .bo-prototype-sections .bo-contact {
+    width: 56%;
+    max-width: 760px;
+}
+
+.bo-dark-page .bo-prototype-sections .bo-principles-heading h2 {
+    font-size: clamp(21px, 1.85vw, 28px);
+}
+
+.bo-dark-page .bo-prototype-sections .bo-contact-heading h2 {
+    font-size: clamp(24px, 2.15vw, 32px);
+}
+
+.bo-dark-page .bo-prototype-sections .bo-principle-card h3 { font-size: clamp(15px, 1.25vw, 18px); }
+.bo-dark-page .bo-prototype-sections .bo-engagement-card h3 { font-size: clamp(16px, 1.3vw, 19px); }
+.bo-dark-page .bo-prototype-sections .bo-principle-card p,
+.bo-dark-page .bo-prototype-sections .bo-engagement-card p { font-size: clamp(11px, 1vw, 13px); }
+.bo-dark-page .bo-prototype-sections .bo-contact-heading p { font-size: 13px; }
+
+@media (max-width: 760px) {
+    .bo-dark-page .bo-prototype-sections .bo-principles,
+    .bo-dark-page .bo-prototype-sections .bo-engagement,
+    .bo-dark-page .bo-prototype-sections .bo-contact {
+        width: 100%;
+    }
+
+    .bo-dark-page .bo-prototype-sections .bo-principles-heading h2 { font-size: 21px; }
+    .bo-dark-page .bo-prototype-sections .bo-contact-heading h2 { font-size: 24px; }
+    .bo-dark-page .bo-prototype-sections .bo-principle-card p,
+    .bo-dark-page .bo-prototype-sections .bo-engagement-card p { font-size: 12px; }
+}
+
+.bo-dark-page #system { background: linear-gradient(180deg, rgba(20, 18, 32, .86), rgba(15, 14, 27, .92)); }
+
+@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+    .bo-dark-page-atmosphere { --bo-parallax-y: 0px !important; will-change: auto; }
+}

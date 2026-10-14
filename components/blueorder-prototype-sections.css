@@ -1,0 +1,149 @@
+/* Prototype sections scoped to the normal homepage integration. */
+.bo-prototype-sections {
+    background: #faf9f7;
+    padding: 1px 2rem 9rem;
+}
+
+.bo-prototype-sections .bo-principles,
+.bo-prototype-sections .bo-engagement,
+.bo-prototype-sections .bo-contact {
+    --bo-display: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
+    --bo-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    width: 50%;
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+    color: #303139;
+    font-family: var(--bo-sans);
+}
+
+.bo-prototype-sections .bo-principles { margin-top: 112px; }
+.bo-prototype-sections .bo-engagement { margin-top: 118px; padding-bottom: 18px; }
+.bo-prototype-sections .bo-contact { margin-top: 132px; padding-bottom: 30px; }
+.bo-prototype-sections .bo-contact * { box-sizing: border-box; }
+
+.bo-prototype-sections .bo-principles-heading { margin-bottom: 30px; text-align: center; }
+.bo-prototype-sections .bo-principles-heading .bo-index,
+.bo-prototype-sections .bo-contact-heading .bo-index { margin-bottom: 11px; }
+.bo-prototype-sections .bo-index {
+    display: block;
+    color: #a39aaa;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+}
+.bo-prototype-sections .bo-principles-heading h2 {
+    margin: 0;
+    font-family: var(--bo-display);
+    font-size: clamp(19px, 1.7vw, 25px);
+    font-weight: 500;
+    letter-spacing: -.35px;
+    line-height: 1.25;
+}
+.bo-prototype-sections .bo-principles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.bo-prototype-sections .bo-principle-card,
+.bo-prototype-sections .bo-engagement-card,
+.bo-prototype-sections .bo-contact-form,
+.bo-prototype-sections .bo-calendly {
+    border: 1px solid #eeedf0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 28px -16px #46375424;
+}
+.bo-prototype-sections .bo-principle-card { padding: 20px 18px 18px; }
+.bo-prototype-sections .bo-principle-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 27px; }
+.bo-prototype-sections .bo-principle-top .bo-index { margin: 0; }
+.bo-prototype-sections .bo-principle-mark { position: relative; width: 25px; height: 25px; border: 1px solid #d8d1df; border-radius: 50%; }
+.bo-prototype-sections .bo-principle-mark::before,
+.bo-prototype-sections .bo-principle-mark::after { position: absolute; border-radius: 2px; background: #9b8aaf; content: ""; }
+.bo-prototype-sections .bo-principle-knowledge .bo-principle-mark::before { top: 8px; left: 7px; width: 9px; height: 1px; box-shadow: 0 4px #9b8aaf, 0 8px #9b8aaf; }
+.bo-prototype-sections .bo-principle-knowledge .bo-principle-mark::after { top: 3px; left: 12px; width: 1px; height: 17px; opacity: .35; }
+.bo-prototype-sections .bo-principle-repeatable .bo-principle-mark::before { top: 5px; left: 5px; width: 13px; height: 13px; border: 1px solid #9b8aaf; border-radius: 50%; background: transparent; }
+.bo-prototype-sections .bo-principle-repeatable .bo-principle-mark::after { top: 12px; left: 12px; width: 6px; height: 1px; transform: rotate(45deg); }
+.bo-prototype-sections .bo-principle-judgment .bo-principle-mark::before { top: 6px; left: 6px; width: 11px; height: 11px; border: 1px solid #9b8aaf; border-radius: 50%; background: transparent; }
+.bo-prototype-sections .bo-principle-judgment .bo-principle-mark::after { top: 9px; left: 12px; width: 1px; height: 7px; }
+.bo-prototype-sections .bo-principle-card h3,
+.bo-prototype-sections .bo-engagement-card h3 {
+    margin: 0 0 12px;
+    font-family: var(--bo-display);
+    font-weight: 500;
+    line-height: 1.25;
+}
+.bo-prototype-sections .bo-principle-card h3 { font-size: clamp(14px, 1.15vw, 16px); }
+.bo-prototype-sections .bo-principle-card p,
+.bo-prototype-sections .bo-engagement-card p { margin: 0; color: #756e7b; font-size: clamp(10px, .95vw, 12px); line-height: 1.65; }
+
+.bo-prototype-sections .bo-engagement .bo-principles-heading { margin-bottom: 30px; }
+.bo-prototype-sections .bo-engagement-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.bo-prototype-sections .bo-engagement-card { padding: 20px 18px 18px; }
+.bo-prototype-sections .bo-engagement-card .bo-index { margin: 0 0 29px; }
+.bo-prototype-sections .bo-engagement-card h3 { font-size: clamp(15px, 1.2vw, 17px); }
+.bo-prototype-sections .bo-engagement-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: max-content;
+    margin: 29px auto 0;
+    padding: 10px 15px;
+    border: 1px solid #e3dce9;
+    border-radius: 999px;
+    color: #6f627d;
+    font-size: 11px;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease;
+}
+.bo-prototype-sections .bo-engagement-cta:hover { color: #40344b; background: #f7f3f9; }
+.bo-prototype-sections .bo-engagement-cta:focus-visible { outline: 2px solid #9b8aaf; outline-offset: 4px; }
+
+.bo-prototype-sections .bo-contact-heading { margin-bottom: 30px; text-align: center; }
+.bo-prototype-sections .bo-contact-heading h2 { margin: 0; font-family: var(--bo-display); font-size: clamp(22px, 2vw, 29px); font-weight: 500; letter-spacing: -.35px; line-height: 1.2; }
+.bo-prototype-sections .bo-contact-heading p { margin: 12px 0 0; color: #756e7b; font-size: 12px; }
+.bo-prototype-sections .bo-contact-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 12px; align-items: stretch; }
+.bo-prototype-sections .bo-contact-form { display: flex; flex-direction: column; gap: 10px; padding: 20px 18px 18px; }
+.bo-prototype-sections .bo-contact-form label { display: flex; flex-direction: column; gap: 6px; color: #756e7b; font-size: 10px; }
+.bo-prototype-sections .bo-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bo-prototype-sections .bo-contact-form input,
+.bo-prototype-sections .bo-contact-form textarea { width: 100%; border: 1px solid #e7e3e9; border-radius: 7px; outline: none; resize: vertical; background: #fcfbfd; color: #303139; padding: 7px 9px; font: inherit; font-size: 11px; }
+.bo-prototype-sections .bo-contact-form input { height: 26px; }
+.bo-prototype-sections .bo-contact-form textarea { min-height: 48px; line-height: 1.4; }
+.bo-prototype-sections .bo-contact-form input:focus,
+.bo-prototype-sections .bo-contact-form textarea:focus { border-color: #a995b8; box-shadow: 0 0 0 3px #f0eaf4; }
+.bo-prototype-sections .bo-contact-form button { width: max-content; margin-top: auto; border: 1px solid #ded4e6; border-radius: 999px; background: #f8f4fa; color: #5e4d6b; padding: 9px 13px; font: inherit; font-size: 11px; cursor: pointer; }
+.bo-prototype-sections .bo-contact-form button:hover { background: #f0e8f5; }
+.bo-prototype-sections .bo-calendly { overflow: hidden; }
+.bo-prototype-sections .bo-calendly-top { display: flex; gap: 10px; padding: 20px 18px; border-bottom: 1px solid #f0edf2; }
+.bo-prototype-sections .bo-calendly-mark { display: grid; width: 25px; height: 25px; border: 1px solid #d8d1df; border-radius: 50%; place-items: center; color: #9b8aaf; font-size: 14px; }
+.bo-prototype-sections .bo-calendly-top div { display: flex; flex-direction: column; gap: 4px; }
+.bo-prototype-sections .bo-calendly-top strong { font-size: 12px; font-weight: 500; }
+.bo-prototype-sections .bo-calendly-top span { color: #756e7b; font-size: 10px; }
+.bo-prototype-sections .bo-calendly-body { display: flex; min-height: 170px; flex-direction: column; align-items: flex-start; padding: 25px 18px; }
+.bo-prototype-sections .bo-calendly-kicker { color: #9b8aaf; font-size: 9px; letter-spacing: 1.1px; }
+.bo-prototype-sections .bo-calendly-body p { margin: 17px 0 11px; font-family: var(--bo-display); font-size: 18px; }
+.bo-prototype-sections .bo-calendly-body a { color: #6f627d; font-size: 11px; text-decoration: none; }
+.bo-prototype-sections .bo-calendly-body a:hover { text-decoration: underline; }
+.bo-prototype-sections .bo-calendly-body small { margin-top: auto; color: #aaa2ad; font-size: 9px; line-height: 1.4; }
+
+@media (max-width: 760px) {
+    .bo-prototype-sections { padding-right: 20px; padding-left: 20px; }
+    .bo-prototype-sections .bo-principles,
+    .bo-prototype-sections .bo-engagement,
+    .bo-prototype-sections .bo-contact { width: 100%; }
+    .bo-prototype-sections .bo-principles { margin-top: 78px; }
+    .bo-prototype-sections .bo-engagement { margin-top: 78px; }
+    .bo-prototype-sections .bo-contact { margin-top: 88px; }
+    .bo-prototype-sections .bo-principles-heading,
+    .bo-prototype-sections .bo-engagement .bo-principles-heading,
+    .bo-prototype-sections .bo-contact-heading { margin-bottom: 22px; }
+    .bo-prototype-sections .bo-principles-grid,
+    .bo-prototype-sections .bo-engagement-grid,
+    .bo-prototype-sections .bo-contact-grid { grid-template-columns: 1fr; gap: 10px; }
+    .bo-prototype-sections .bo-principle-card,
+    .bo-prototype-sections .bo-engagement-card { min-height: 0; padding: 17px 16px 18px; }
+    .bo-prototype-sections .bo-principle-top { margin-bottom: 20px; }
+    .bo-prototype-sections .bo-engagement-card .bo-index { margin-bottom: 20px; }
+    .bo-prototype-sections .bo-principle-card p,
+    .bo-prototype-sections .bo-engagement-card p { font-size: 11px; }
+    .bo-prototype-sections .bo-contact-form { padding: 17px 16px 16px; }
+    .bo-prototype-sections .bo-calendly-body { min-height: 135px; }
+}

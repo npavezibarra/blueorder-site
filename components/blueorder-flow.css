@@ -1,0 +1,87 @@
+.bo-diagram-section {
+    --bo-ink: #171729;
+    --bo-muted: #5f5b70;
+    --bo-line: #a9a0bf;
+    background: linear-gradient(135deg, #ece9f3 0%, #f5e8e2 54%, #edf1f8 100%);
+    color: var(--bo-ink);
+    padding: 9rem 2rem;
+}
+
+.bo-diagram-section blueorder-flow {
+    display: block;
+    width: min(50%, 680px);
+    margin-inline: auto;
+}
+
+.bo-diagram-section .bo-flow,
+.bo-diagram-section .bo-flow * {
+    box-sizing: border-box;
+}
+
+.bo-diagram-section .bo-flow {
+    color: var(--bo-ink);
+    font-family: 'Inter', sans-serif;
+}
+
+.bo-diagram-section .bo-step { text-align: center; }
+.bo-diagram-section .bo-step-heading { margin-bottom: 28px; }
+.bo-diagram-section .bo-index { display: block; margin-bottom: 11px; color: #62578a; font-size: 10px; font-weight: 600; letter-spacing: 1.4px; }
+.bo-diagram-section .bo-flow h3 { margin: 0; font-family: 'Inter', sans-serif; font-size: clamp(18px, 1.7vw, 27px); font-weight: 400; letter-spacing: -.55px; line-height: 1.25; }
+.bo-diagram-section .bo-split { display: grid; grid-template-columns: 49.45% 1.1% 49.45%; align-items: center; min-height: 145px; text-align: left; }
+.bo-diagram-section .bo-split > svg { grid-column: 1; width: 100%; max-width: 156px; height: auto; justify-self: end; overflow: visible; }
+.bo-diagram-section .bo-terms { grid-column: 3; margin: 0; padding: 0; color: #4e4b5d; font-size: clamp(12px, 1.05vw, 15px); font-weight: 400; line-height: 2.05; list-style: none; }
+.bo-diagram-section .bo-short-term { display: none; }
+.bo-diagram-section .bo-caption { margin: 22px 0 0; color: var(--bo-muted); font-size: 11px; letter-spacing: .1px; line-height: 1.7; }
+.bo-diagram-section .bo-connector { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 110px; }
+.bo-diagram-section .bo-connector span { width: 1px; height: 50px; background: linear-gradient(transparent, var(--bo-line)); }
+.bo-diagram-section .bo-connector svg { width: 10px; height: 6px; fill: none; stroke: var(--bo-line); stroke-width: 1; }
+.bo-diagram-section .bo-chat { width: 76%; margin: auto; padding: 19px; border: 1px solid rgba(55, 45, 83, .12); border-radius: 14px; background: rgba(255, 255, 255, .92); box-shadow: 0 12px 30px -18px rgba(32, 24, 64, .3); text-align: left; }
+.bo-diagram-section .bo-chat-top { display: flex; align-items: center; gap: 9px; color: #615c6e; font-size: 11px; }
+.bo-diagram-section .bo-chat-mark { color: #7562a8; font-size: 20px; line-height: 1; }
+.bo-diagram-section .bo-chat-menu { margin-left: auto; color: #8b8397; letter-spacing: 2px; }
+.bo-diagram-section .bo-chat-body { padding: 21px 0 20px; }
+.bo-diagram-section .bo-message { width: fit-content; max-width: 85%; margin-left: auto; padding: 11px 15px; border-radius: 14px 14px 4px 14px; background: #edeaf4; color: #4d485a; font-size: clamp(11px, 1vw, 14px); line-height: 1.6; }
+.bo-diagram-section .bo-reply { display: flex; gap: 11px; margin-top: 23px; font-size: clamp(11px, 1vw, 14px); line-height: 1.7; }
+.bo-diagram-section .bo-reply p { margin: 0; }
+.bo-diagram-section .bo-reply-mark { color: #7562a8; font-size: 18px; }
+.bo-diagram-section .bo-evidence { display: block; margin-top: 10px; color: #66518e; font-size: 9px; }
+.bo-diagram-section .bo-composer { display: flex; align-items: center; gap: 12px; padding: 7px 8px; border: 1px solid #e6e1ed; border-radius: 20px; background: #faf9fc; color: #938b9e; }
+.bo-diagram-section .bo-composer-line { width: 55px; height: 3px; border-radius: 3px; background: #e3deea; }
+.bo-diagram-section .bo-send { display: grid; width: 22px; height: 22px; margin-left: auto; border-radius: 50%; place-items: center; background: #e8e1f0; color: #69528e; font-size: 15px; }
+.bo-diagram-section .bo-dashboard { width: 90%; margin-inline: auto; }
+.bo-diagram-section .bo-dashboard-art { display: block; width: 100%; height: auto; filter: drop-shadow(0 12px 20px rgba(48, 37, 80, .08)); }
+.bo-diagram-section .bo-last-step { padding-bottom: 12px; }
+
+.bo-diagram-section .bo-flow[data-motion] .bo-step { opacity: 0; transform: translateY(18px); transition: opacity 1400ms cubic-bezier(.22,.61,.36,1), transform 1400ms cubic-bezier(.22,.61,.36,1); }
+.bo-diagram-section .bo-flow[data-motion] .bo-step.is-visible { opacity: 1; transform: none; }
+.bo-diagram-section .bo-flow[data-motion] .bo-reply { opacity: 0; transition: opacity 1100ms cubic-bezier(.22,.61,.36,1) 420ms; }
+.bo-diagram-section .bo-flow[data-motion] .is-visible .bo-reply { opacity: 1; }
+
+@media (max-width: 760px) {
+    .bo-diagram-section { padding: 6rem 1rem; }
+    .bo-diagram-section blueorder-flow { width: 100%; }
+    .bo-diagram-section .bo-step-heading { margin-bottom: 19px; }
+    .bo-diagram-section .bo-split { min-height: 96px; }
+    .bo-diagram-section .bo-split > svg { max-width: 110px; }
+    .bo-diagram-section .bo-terms { font-size: 11px; line-height: 2; }
+    .bo-diagram-section .bo-long-term { display: none; }
+    .bo-diagram-section .bo-short-term { display: inline; }
+    .bo-diagram-section .bo-caption { margin-top: 16px; font-size: 10px; }
+    .bo-diagram-section .bo-connector { height: 84px; }
+    .bo-diagram-section .bo-connector span { height: 38px; }
+    .bo-diagram-section .bo-chat { width: 100%; padding: 12px; border-radius: 11px; }
+    .bo-diagram-section .bo-chat-top { gap: 5px; font-size: 9px; }
+    .bo-diagram-section .bo-chat-mark { font-size: 15px; }
+    .bo-diagram-section .bo-chat-body { padding: 17px 0; }
+    .bo-diagram-section .bo-message { max-width: 95%; padding: 9px; font-size: 11px; }
+    .bo-diagram-section .bo-reply { gap: 6px; margin-top: 18px; font-size: 11px; }
+    .bo-diagram-section .bo-reply-mark { font-size: 14px; }
+    .bo-diagram-section .bo-evidence { font-size: 8px; }
+    .bo-diagram-section .bo-chat-break { display: none; }
+    .bo-diagram-section .bo-dashboard { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bo-diagram-section .bo-flow[data-motion] .bo-step,
+    .bo-diagram-section .bo-flow[data-motion] .bo-reply { opacity: 1; transform: none; transition: none; }
+}
