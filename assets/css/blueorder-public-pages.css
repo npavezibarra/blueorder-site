@@ -1,0 +1,230 @@
+.bo-public-page {
+    --bo-public-night: #16172A;
+    --bo-public-ink: #f7f4ff;
+    --bo-public-muted: #d0cadb;
+    --bo-public-line: rgba(211, 205, 239, .2);
+    --bo-public-accent: #cbbff2;
+    --bo-public-section-space: clamp(96px, 12vw, 170px);
+    --bo-public-hero-follow-space: clamp(64px, 6vw, 92px);
+    --bo-public-heading-size: clamp(34px, 4vw, 54px);
+    --bo-public-body-size: clamp(15px, 1.3vw, 18px);
+    background: var(--bo-public-night);
+    color: var(--bo-public-ink);
+}
+
+.bo-public-page .bo-public-hero {
+    position: relative;
+    display: flex;
+    min-height: clamp(540px, 68vh, 680px);
+    overflow: hidden;
+    align-items: center;
+    padding: clamp(176px, 13vw, 196px) 2rem clamp(72px, 6vw, 96px);
+    background-color: var(--bo-public-night);
+    background-image:
+        linear-gradient(90deg, rgba(14, 14, 34, .92), rgba(22, 20, 43, .79) 65%, rgba(22, 20, 43, .7)),
+        url('../images/hero-bg-6.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #f7f4ff;
+}
+
+.bo-public-page .bo-public-hero::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: clamp(120px, 15vw, 210px);
+    background: linear-gradient(180deg, transparent 0%, rgba(22, 23, 42, .3) 42%, rgba(22, 23, 42, .8) 78%, var(--bo-public-night) 100%);
+    content: "";
+    pointer-events: none;
+}
+
+.bo-public-page .bo-public-hero-inner {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1120px);
+    margin: 0 auto;
+}
+
+.bo-public-page .bo-public-eyebrow,
+.bo-public-page .bo-public-section-index {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.bo-public-page .bo-public-eyebrow { margin-bottom: 22px; color: var(--bo-public-accent); }
+.bo-public-page .bo-public-hero h1 {
+    max-width: 760px;
+    margin: 0 0 30px;
+    font-family: var(--bo-what-display);
+    font-size: clamp(36px, 3.4vw, 50px);
+    font-weight: 500;
+    letter-spacing: -.035em;
+    line-height: 1.08;
+}
+
+.bo-public-page .bo-public-hero-copy { max-width: 760px; }
+.bo-public-page .bo-public-hero-copy p { margin: 0 0 18px; color: #d9d4e9; font-size: clamp(14px, 1vw, 16px); line-height: 1.68; }
+.bo-public-page .bo-public-hero-copy p:last-child { margin-bottom: 0; }
+.bo-public-page .bo-public-hero-copy .bo-public-lede { color: #fff; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.7; }
+.bo-public-page .bo-public-dark { background: var(--bo-public-night); color: var(--bo-public-ink); }
+.bo-public-page .bo-public-section-inner { width: min(100%, 1120px); margin: 0 auto; }
+.bo-public-page .bo-public-section-index { color: var(--bo-public-accent); }
+
+.bo-about-page .bo-about-beliefs,
+.bo-about-page .bo-about-audience,
+.bo-about-page .bo-about-close,
+.bo-contact-page .bo-contact-main { padding: var(--bo-public-section-space) 2rem; }
+.bo-about-page .bo-about-beliefs,
+.bo-contact-page .bo-contact-main { padding-top: var(--bo-public-hero-follow-space); }
+.bo-about-page .bo-about-beliefs,
+.bo-about-page .bo-about-audience { padding-bottom: 0; }
+
+.bo-about-page .bo-about-belief {
+    display: grid;
+    grid-template-columns: minmax(150px, .48fr) minmax(0, 1fr);
+    padding: 48px 0;
+    border-top: 1px solid var(--bo-public-line);
+    gap: clamp(24px, 5vw, 80px);
+}
+.bo-about-page .bo-about-belief:first-child { padding-top: 32px; }
+.bo-about-page .bo-about-belief:last-child { border-bottom: 1px solid var(--bo-public-line); }
+.bo-about-page .bo-about-belief h2,
+.bo-about-page .bo-about-audience h2,
+.bo-about-page .bo-founders-heading h2,
+.bo-contact-page .bo-contact-main h2 {
+    margin: 0;
+    font-family: var(--bo-what-display);
+    font-size: var(--bo-public-heading-size);
+    font-weight: 500;
+    letter-spacing: -.035em;
+    line-height: 1.13;
+}
+.bo-about-page .bo-about-belief h2 { margin-bottom: 18px; }
+.bo-about-page .bo-about-belief p,
+.bo-about-page .bo-about-audience-support,
+.bo-about-page .bo-founders-heading p { max-width: 700px; margin: 0; font-size: var(--bo-public-body-size); line-height: 1.75; }
+.bo-about-page .bo-about-belief p,
+.bo-about-page .bo-about-audience-support { color: var(--bo-public-muted); }
+
+.bo-about-page .bo-about-audience-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(40px, 7vw, 110px); }
+.bo-about-page .bo-about-audience h2 { max-width: 410px; margin: 20px 0 26px; }
+.bo-about-page .bo-about-audience-list { margin: 0; padding: 0; list-style: none; }
+.bo-about-page .bo-about-audience-list li { display: grid; grid-template-columns: 34px minmax(0, 1fr); padding: 20px 0; border-top: 1px solid var(--bo-public-line); gap: 18px; }
+.bo-about-page .bo-about-audience-list li:last-child { border-bottom: 1px solid var(--bo-public-line); }
+.bo-about-page .bo-about-audience-list span { color: var(--bo-public-accent); font-size: 10px; font-weight: 600; letter-spacing: .1em; }
+.bo-about-page .bo-about-audience-list p { margin: 0; font-size: var(--bo-public-body-size); line-height: 1.6; }
+
+.bo-about-page .bo-founders {
+    padding: var(--bo-public-section-space) 2rem 0;
+    background: linear-gradient(180deg, var(--bo-public-night), #1e1b38 45%, var(--bo-public-night));
+    color: #f7f4ff;
+}
+.bo-about-page .bo-founders-heading { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); margin-bottom: clamp(62px, 7vw, 96px); gap: clamp(40px, 7vw, 110px); }
+.bo-about-page .bo-founders-heading h2 { margin: 20px 0 0; }
+.bo-about-page .bo-founders-heading p { margin: 0 0 18px; color: #d0cadb; }
+.bo-about-page .bo-founder-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 3vw, 42px); }
+.bo-about-page .bo-founder { min-width: 0; }
+.bo-about-page .bo-founder-portrait {
+    display: grid;
+    min-height: 210px;
+    aspect-ratio: 4 / 5;
+    padding: 20px;
+    border: 1px dashed rgba(225, 216, 239, .42);
+    background: linear-gradient(145deg, rgba(206, 187, 226, .1), rgba(121, 99, 159, .04));
+    color: #bbb0ce;
+    place-items: center;
+    text-align: center;
+}
+.bo-about-page .bo-founder-portrait span { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.bo-about-page .bo-founder-meta { padding-top: 23px; border-top: 1px solid rgba(225, 216, 239, .26); margin-top: 22px; }
+.bo-about-page .bo-founder-meta h3 { margin: 12px 0 8px; font-family: var(--bo-what-display); font-size: clamp(23px, 2.1vw, 31px); font-weight: 500; }
+.bo-about-page .bo-founder-role { margin: 0 0 22px; color: #cbbff2; font-size: 13px; }
+.bo-about-page .bo-founder-bio { min-height: 4.8em; margin: 0 0 24px; color: #cfc9da; font-size: 14px; line-height: 1.6; }
+.bo-about-page .bo-founder-links { display: flex; flex-wrap: wrap; gap: 16px; color: #a79bbd; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+
+.bo-about-page .bo-about-close { text-align: center; }
+.bo-about-page .bo-about-close p { max-width: 790px; margin: 0 auto 38px; font-family: var(--bo-what-display); font-size: var(--bo-public-heading-size); line-height: 1.23; }
+.bo-public-page .bo-public-cta {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 25px;
+    border: 1px solid var(--bo-public-ink);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--bo-public-ink);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .25s ease, color .25s ease;
+}
+.bo-public-page .bo-public-cta:hover,
+.bo-public-page .bo-public-cta:focus-visible { background: var(--bo-public-ink); color: var(--bo-public-night); }
+.bo-public-page .bo-public-cta:focus-visible { outline: 2px solid #7562a8; outline-offset: 3px; }
+.bo-public-page .bo-public-cta span { margin-left: 16px; }
+
+.bo-contact-page .bo-contact-hero .bo-public-hero-copy { max-width: 680px; }
+.bo-contact-page .bo-contact-intro { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 34px; border-bottom: 1px solid var(--bo-public-line); padding-bottom: 26px; gap: 24px; }
+.bo-contact-page .bo-contact-intro p { max-width: 300px; margin: 0; color: var(--bo-public-muted); font-size: 13px; line-height: 1.6; }
+.bo-contact-page .bo-public-contact-form { max-width: 900px; }
+.bo-contact-page .bo-contact-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; }
+.bo-contact-page .bo-contact-field { display: flex; min-width: 0; flex-direction: column; gap: 9px; }
+.bo-contact-page .bo-contact-field--wide { grid-column: 1 / -1; }
+.bo-contact-page .bo-contact-field label { color: var(--bo-public-ink); font-size: 13px; font-weight: 500; }
+.bo-contact-page .bo-contact-field input,
+.bo-contact-page .bo-contact-field textarea {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--bo-public-line);
+    border-radius: 8px;
+    background: rgba(247, 244, 255, .07);
+    color: var(--bo-public-ink);
+    font: 400 15px/1.5 "Inter", sans-serif;
+}
+.bo-contact-page .bo-contact-field textarea { min-height: 92px; resize: vertical; }
+.bo-contact-page .bo-contact-field input:focus-visible,
+.bo-contact-page .bo-contact-field textarea:focus-visible { border-color: #7562a8; outline: 2px solid rgba(117, 98, 168, .38); outline-offset: 1px; }
+.bo-contact-page .bo-contact-form-actions { display: flex; align-items: center; flex-wrap: wrap; margin-top: 30px; gap: 18px; }
+.bo-contact-page .bo-contact-submit { cursor: pointer; }
+.bo-contact-page .bo-contact-submit:disabled { cursor: not-allowed; opacity: .68; }
+.bo-contact-page .bo-contact-form-note { margin: 0; color: var(--bo-public-muted); font-size: 13px; line-height: 1.6; }
+.bo-contact-page .bo-contact-form-status { min-height: 1.5em; margin: 14px 0 0; color: var(--bo-public-accent); font-size: 13px; }
+.bo-public-page .bo-what-footer { border-top-color: var(--bo-public-line); background: var(--bo-public-night); color: var(--bo-public-ink); }
+
+@media (max-width: 760px) {
+    .bo-public-page .bo-public-hero { padding: 156px 1.25rem 80px; }
+    .bo-about-page .bo-about-beliefs,
+    .bo-about-page .bo-about-audience,
+    .bo-about-page .bo-about-close,
+    .bo-contact-page .bo-contact-main,
+    .bo-about-page .bo-founders { padding-right: 1.25rem; padding-left: 1.25rem; }
+    .bo-about-page .bo-about-belief,
+    .bo-about-page .bo-about-audience-grid,
+    .bo-about-page .bo-founders-heading { grid-template-columns: 1fr; gap: 20px; }
+    .bo-about-page .bo-founder-list { grid-template-columns: 1fr; gap: 48px; }
+    .bo-about-page .bo-founder-portrait { width: min(100%, 350px); }
+}
+
+@media (max-width: 560px) {
+    .bo-public-page .bo-public-hero { min-height: 0; padding: 148px 1rem 80px; }
+    .bo-public-page .bo-public-hero h1 { font-size: clamp(30px, 8.2vw, 38px); }
+    .bo-about-page .bo-about-beliefs,
+    .bo-about-page .bo-about-audience,
+    .bo-about-page .bo-about-close,
+    .bo-contact-page .bo-contact-main,
+    .bo-about-page .bo-founders { padding-right: 1rem; padding-left: 1rem; }
+    .bo-about-page .bo-about-belief { padding: 34px 0; }
+    .bo-contact-page .bo-contact-intro { align-items: flex-start; flex-direction: column; }
+    .bo-contact-page .bo-contact-form-grid { grid-template-columns: 1fr; }
+    .bo-contact-page .bo-contact-field--wide { grid-column: auto; }
+}

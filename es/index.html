@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio — BlueOrder</title>
+    <meta name="description" content="BlueOrder crea agentes de IA que conectan datos, documentos y conocimiento operativo para elevar la forma de trabajar.">
+    <link rel="alternate" hreflang="en" href="../index.html">
+    <link rel="alternate" hreflang="es" href="./index.html">
+    <link rel="alternate" hreflang="x-default" href="../index.html">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/blueorder-tailwind-config.js"></script>
+    <!-- Google Fonts & Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Clarity+City:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/blueorder-flow.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-flow-dark.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-prototype-sections.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-prototype-sections-dark.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-navigation.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-home.css">
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="bo-site-nav fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b theme-dark px-8 lg:px-20" id="navbar">
+        <div class="max-w-7xl mx-auto w-full h-28 flex items-center justify-between">
+            <a href="./index.html" aria-label="Página de inicio de BlueOrder" class="nav-logo text-[27px] md:text-[32px] font-medium tracking-tight lowercase text-left flex justify-start items-center" style="font-family: 'Cal Sans', sans-serif; font-weight: 500;">
+                blueorder
+            </a>
+            <nav class="bo-desktop-nav hidden md:flex space-x-12 text-xs font-medium tracking-wide uppercase" aria-label="Navegación principal">
+                <a href="./index.html" class="nav-link bo-nav-link" aria-current="page">Inicio</a>
+                <a href="./que-hacemos.html" class="nav-link bo-nav-link">Qué hacemos</a>
+                <a href="./nosotros.html" class="nav-link bo-nav-link">Nosotros</a>
+                <a href="./contacto.html" class="nav-link bo-nav-link">Contacto</a>
+            </nav>
+            <a href="./contacto.html" class="nav-btn text-xs uppercase font-medium tracking-wider px-6 py-3 rounded-full border">
+                Hablemos
+            </a>
+            <div class="bo-language-switch" role="group" aria-label="Idioma"><a href="../index.html" lang="en" hreflang="en" aria-label="View site in English">EN</a><span aria-hidden="true">/</span><span aria-current="true">ES</span></div>
+            <details class="bo-nav-mobile">
+                <summary class="bo-nav-mobile-toggle"><span>Menú</span><span class="bo-nav-mobile-icon" aria-hidden="true"></span></summary>
+                <nav class="bo-nav-mobile-panel" aria-label="Navegación móvil">
+                    <a href="./index.html" aria-current="page">Inicio</a>
+                    <a href="./que-hacemos.html">Qué hacemos</a>
+                    <a href="./nosotros.html">Nosotros</a>
+                    <a href="./contacto.html">Contacto</a>
+                </nav>
+            </details>
+        </div>
+    </header>
+
+    <main class="bo-dark-page">
+        <div class="bo-dark-page-atmosphere" aria-hidden="true"></div>
+        <!-- SECCION 1: Polymorphic Blue & Red Gradient Mesh -->
+        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 hero-polymorphic-bg" data-theme="dark">
+            <!-- Ambient SVG Network Background Layer -->
+            <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <svg class="network-svg w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="lineGradHero" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.55"></stop>
+                            <stop offset="100%" stop-color="#c084fc" stop-opacity="0.25"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <div class="max-w-7xl mx-auto w-full my-auto py-24 relative z-10">
+                <div class="inline-block text-xs uppercase tracking-widest text-indigo-200 mb-12 font-semibold">
+                    INICIO &mdash; BLUEORDER
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.12] mb-16 text-white max-w-5xl">
+                    Eleva la forma de trabajar.
+                </h1>
+
+                <div class="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-neutral-200 max-w-4xl">
+                    <p>
+                        Creamos agentes de IA que conectan los datos, documentos y conocimiento operativo de tu empresa. Descubre respuestas con mayor rapidez, evita rehacer trabajo y concéntrate en lo que realmente impulsa tu negocio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-neutral-300 uppercase tracking-widest pt-16 border-t border-white/20 relative z-10">
+                <a href="./contacto.html" class="hover:text-white transition-colors">Habla con nuestro equipo ↗</a>
+                <a href="#knowledge-flow" class="hover:text-white transition-colors flex items-center gap-2">
+                    Conoce cómo funciona <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="knowledge-flow" class="bo-diagram-section bo-diagram-section--dark" data-theme="dark" aria-label="Flujo de conocimiento de BlueOrder">
+            <div class="bo-network-layer" aria-hidden="true">
+                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradDiagram" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.42"></stop>
+                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.18"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <blueorder-flow flow-id="bo-dark-flow"></blueorder-flow>
+        </section>
+
+        <div class="bo-prototype-sections" data-theme="dark">
+            <div class="bo-network-layer" aria-hidden="true">
+                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradPrototype" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.38"></stop>
+                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.16"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+            <section class="bo-principles" id="principles" aria-labelledby="principles-title">
+                <div class="bo-principles-heading"><span class="bo-index">TRES PRINCIPIOS</span><h2 id="principles-title">Un sistema útil mantiene a las personas al tanto y al mando.</h2></div>
+                <div class="bo-principles-grid">
+                    <article class="bo-principle-card bo-principle-knowledge"><div class="bo-principle-top"><span class="bo-index">01</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Información confiable</h3><p>El sistema trabaja con fuentes aprobadas, definiciones comunes y evidencia que se puede consultar. Si encuentra datos incompletos o contradictorios, lo informa.</p></article>
+                    <article class="bo-principle-card bo-principle-repeatable"><div class="bo-principle-top"><span class="bo-index">02</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Procesos que se pueden repetir</h3><p>Convertimos los métodos que ya funcionan en instrucciones, herramientas y controles que otros pueden volver a usar. Así, las buenas prácticas dejan de depender de una sola persona o equipo.</p></article>
+                    <article class="bo-principle-card bo-principle-judgment"><div class="bo-principle-top"><span class="bo-index">03</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Criterio humano</h3><p>La IA apoya el trabajo; las personas interpretan los resultados, aprueban los cambios y toman las decisiones importantes.</p></article>
+                </div>
+            </section>
+
+            <section class="bo-engagement" id="workflow" aria-labelledby="workflow-title">
+                <div class="bo-principles-heading"><span class="bo-index">PROCESO DE TRABAJO</span><h2 id="workflow-title">Cómo funciona un proyecto</h2></div>
+                <div class="bo-engagement-grid">
+                    <article class="bo-engagement-card"><span class="bo-index">01</span><h3>Evaluar</h3><p>Comenzamos con una pregunta recurrente del negocio. Revisamos las fuentes, las definiciones, las personas involucradas, los accesos necesarios, el esfuerzo actual y los costos de operación.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">02</span><h3>Construir en conjunto</h3><p>Ordenamos el conocimiento y configuramos solo las fuentes y herramientas que ese flujo necesita. Luego creamos, junto con el equipo del cliente, un agente o proceso con objetivos y límites claros.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">03</span><h3>Probar en la práctica</h3><p>Probamos preguntas representativas, comparamos las respuestas con fuentes y cálculos aprobados y evaluamos cómo responde el sistema ante errores o falta de información. Las personas que lo usarán participan en las pruebas.</p></article>
+                    <article class="bo-engagement-card"><span class="bo-index">04</span><h3>Entregar</h3><p>Entregamos el sistema, las instrucciones de mantenimiento, los casos de prueba y los controles de costos. El cliente queda preparado para operarlo, mantenerlo y mejorarlo.</p></article>
+                </div>
+                <a class="bo-engagement-cta" href="./que-hacemos.html">Conoce lo que hacemos <span aria-hidden="true">↗</span></a>
+            </section>
+
+            <section class="bo-contact" id="contact" aria-labelledby="contact-title">
+                <div class="bo-contact-heading"><span class="bo-index">INICIA UNA CONVERSACIÓN</span><h2 id="contact-title">Cuéntanos una pregunta que se repita en tu negocio.</h2><p>Te ayudaremos a identificar un punto de partida útil.</p></div>
+                <div class="bo-contact-grid">
+                    <form class="bo-contact-form" action="#" method="post" onsubmit="return false">
+                        <div class="bo-form-row"><label>Nombre<input name="firstName" autocomplete="given-name" required></label><label>Apellido<input name="lastName" autocomplete="family-name" required></label></div>
+                        <label>Correo electrónico<input type="email" name="email" autocomplete="email" required></label>
+                        <label>¿Qué te gustaría mejorar?<textarea name="message" rows="3" placeholder="Un informe, una revisión o una pregunta recurrente…" required></textarea></label>
+                        <button type="submit">Enviar mensaje <span aria-hidden="true">↗</span></button>
+                    </form>
+                    <div class="bo-calendly" aria-label="Reservar una conversación">
+                        <div class="bo-calendly-top"><span class="bo-calendly-mark" aria-hidden="true">✳</span><div><strong>BlueOrder</strong><span>Conversación inicial</span></div></div>
+                        <div class="bo-calendly-body"><span class="bo-calendly-kicker">ELIGE UN HORARIO</span><p>¿Prefieres reservar una hora?</p><a href="#calendly-placeholder">Abrir el calendario <span aria-hidden="true">↗</span></a><small id="calendly-placeholder">Aquí se conectará el enlace de Calendly.</small></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script type="module" src="../assets/js/blueorder-flow.js"></script>
+    <script type="module" src="../assets/js/blueorder-dark-parallax.js"></script>
+    <script src="../assets/js/blueorder-home.js"></script>
+</body>
+</html>

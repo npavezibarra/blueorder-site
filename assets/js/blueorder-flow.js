@@ -7,7 +7,7 @@ class BlueOrderFlow extends HTMLElement {
     if (this.cleanup) return;
     const requestedId = this.getAttribute('flow-id');
     const id = requestedId && /^[a-zA-Z][\w-]*$/.test(requestedId) ? requestedId : `bo-instance-${++instanceCount}`;
-    if (!this.querySelector('.bo-flow')) this.innerHTML = renderFlow(id);
+    if (!this.querySelector('.bo-flow')) this.innerHTML = renderFlow(id, document.documentElement.lang);
     const root = this.querySelector('.bo-flow');
     const steps = [...root.querySelectorAll('[data-reveal]')];
     const media = matchMedia('(prefers-reduced-motion: reduce)');

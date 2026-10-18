@@ -1,0 +1,55 @@
+.bo-what-purple-page {
+    --bo-purple-deep: #2A1E45;
+    --bo-purple-blend-dark: color-mix(in srgb, var(--bo-purple-deep) 73%, #F5EBE8);
+    --bo-purple-blend-light: color-mix(in srgb, var(--bo-purple-deep) 20%, #F5EBE8);
+}
+
+.bo-what-purple-page .bo-what-hero {
+    background-color: var(--bo-purple-deep);
+    background-image:
+        radial-gradient(ellipse 90% 72% at 8% 88%, rgba(117, 84, 169, .32), transparent 70%),
+        radial-gradient(ellipse 72% 64% at 94% 8%, rgba(91, 77, 145, .22), transparent 76%),
+        linear-gradient(135deg, #211630 0%, #302447 48%, var(--bo-purple-deep) 100%);
+}
+
+.bo-what-purple-page .bo-what-hero::after {
+    background: linear-gradient(180deg,
+        rgba(42, 30, 69, 0) 0%,
+        rgba(42, 30, 69, .1) 30%,
+        rgba(42, 30, 69, .42) 62%,
+        rgba(42, 30, 69, .8) 84%,
+        var(--bo-purple-deep) 100%);
+}
+
+.bo-what-purple-page .bo-what-network { display: none; }
+.bo-what-purple-page .bo-what-hero-image { background: var(--bo-purple-deep); }
+.bo-what-purple-page .bo-what-hero-image::before,
+.bo-what-purple-page .bo-what-hero-image::after { display: none; }
+.bo-what-purple-page .bo-what-hero-image img {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 68%, rgba(0, 0, 0, .9) 78%, rgba(0, 0, 0, .48) 91%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 68%, rgba(0, 0, 0, .9) 78%, rgba(0, 0, 0, .48) 91%, transparent 100%);
+}
+
+.bo-what-purple-page .bo-what-system {
+    --bo-what-line: #9184b1;
+    --bo-what-accent: #dcd0f0;
+    background: linear-gradient(180deg,
+        var(--bo-purple-deep) 0%,
+        var(--bo-purple-deep) calc(100% - 160px),
+        var(--bo-purple-blend-dark) 100%);
+    padding-bottom: clamp(46px, 5vw, 76px);
+}
+
+.bo-what-purple-page .bo-system-node { border-color: #9184b1; background: #38284f; }
+.bo-what-purple-page .bo-system-card { border-color: rgba(220, 208, 240, .18); background: rgba(48, 37, 70, .88); }
+
+.bo-what-purple-page .bo-what-lower { background: #F5EBE8; }
+.bo-what-purple-page .bo-what-workflow {
+    background: linear-gradient(180deg, var(--bo-purple-blend-light) 0%, #F5EBE8 130px);
+    padding-top: clamp(44px, 5vw, 72px);
+}
+
+.bo-what-purple-page .bo-what-transition {
+    height: clamp(240px, 24vw, 320px);
+    background: linear-gradient(180deg, var(--bo-purple-blend-dark) 0%, var(--bo-purple-blend-light) 100%);
+}

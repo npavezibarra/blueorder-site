@@ -9,7 +9,7 @@
     pointer-events: none;
     background-image:
         linear-gradient(180deg, rgba(9, 10, 23, .56) 0%, rgba(14, 15, 31, .72) 38%, rgba(16, 17, 34, .92) 100%),
-        url('../hero-bg-6.jpg');
+        url('../images/hero-bg-6.jpg');
     background-position: center calc(50% + var(--bo-parallax-y)), center calc(50% + var(--bo-parallax-y));
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,11 +21,6 @@
 
 .bo-dark-page .bo-prototype-sections { position: relative; }
 .bo-dark-page .bo-prototype-sections > section { position: relative; z-index: 1; }
-
-.bo-dark-page #system > *:not(.bo-network-layer) {
-    position: relative;
-    z-index: 1;
-}
 
 .bo-dark-page .bo-diagram-section--dark {
     background: #16172A;
@@ -129,8 +124,6 @@
     .bo-dark-page .bo-prototype-sections .bo-principle-card p,
     .bo-dark-page .bo-prototype-sections .bo-engagement-card p { font-size: 12px; }
 }
-
-.bo-dark-page #system { background: linear-gradient(180deg, rgba(20, 18, 32, .86), rgba(15, 14, 27, .92)); }
 
 @media (max-width: 760px), (prefers-reduced-motion: reduce) {
     .bo-dark-page-atmosphere { --bo-parallax-y: 0px !important; will-change: auto; }

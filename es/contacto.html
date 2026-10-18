@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conversemos sobre una pregunta o proceso recurrente que tu equipo quiera mejorar con BlueOrder.">
+    <title>Contacto — BlueOrder</title>
+    <link rel="alternate" hreflang="en" href="../contact.html">
+    <link rel="alternate" hreflang="es" href="./contacto.html">
+    <link rel="alternate" hreflang="x-default" href="../contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/blueorder-what-we-do.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-public-pages.css">
+    <link rel="stylesheet" href="../assets/css/blueorder-navigation.css">
+</head>
+<body class="bo-what-page bo-public-page bo-contact-page">
+    <header class="bo-what-nav bo-site-nav" data-tone="dark" data-scrolled="false">
+        <div class="bo-what-nav-inner">
+            <a class="bo-what-logo" href="./index.html" aria-label="Página de inicio de BlueOrder">blueorder</a>
+            <nav class="bo-what-nav-links bo-desktop-nav" aria-label="Navegación principal">
+                <a class="bo-nav-link" href="./index.html">Inicio</a>
+                <a class="bo-nav-link" href="./que-hacemos.html">Qué hacemos</a>
+                <a class="bo-nav-link" href="./nosotros.html">Nosotros</a>
+                <a class="bo-nav-link" href="./contacto.html" aria-current="page">Contacto</a>
+            </nav>
+            <a class="bo-what-nav-cta" href="./contacto.html">Hablemos</a>
+            <div class="bo-language-switch" role="group" aria-label="Idioma"><a href="../contact.html" lang="en" hreflang="en" aria-label="View site in English">EN</a><span aria-hidden="true">/</span><span aria-current="true">ES</span></div>
+            <details class="bo-nav-mobile">
+                <summary class="bo-nav-mobile-toggle"><span>Menú</span><span class="bo-nav-mobile-icon" aria-hidden="true"></span></summary>
+                <nav class="bo-nav-mobile-panel" aria-label="Navegación móvil">
+                    <a href="./index.html">Inicio</a>
+                    <a href="./que-hacemos.html">Qué hacemos</a>
+                    <a href="./nosotros.html">Nosotros</a>
+                    <a href="./contacto.html" aria-current="page">Contacto</a>
+                </nav>
+            </details>
+        </div>
+    </header>
+
+    <main>
+        <section class="bo-public-hero bo-contact-hero" id="contact" data-theme="dark" aria-labelledby="contact-title">
+            <div class="bo-public-hero-inner">
+                <span class="bo-public-eyebrow">CONTACTO</span>
+                <h1 id="contact-title">Empieza con una pregunta recurrente.</h1>
+                <div class="bo-public-hero-copy">
+                    <p>Cuéntanos qué trabajo quieres mejorar, dónde se encuentra hoy la información y cómo sería un resultado útil. Te ayudaremos a identificar si existe un buen punto de partida.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bo-public-dark bo-contact-main" data-theme="dark" aria-label="Formulario de contacto">
+            <div class="bo-public-section-inner">
+                <div class="bo-contact-intro" data-reveal>
+                    <h2>Tu mensaje</h2>
+                    <p>Todos los campos son opcionales.</p>
+                </div>
+                <form class="bo-public-contact-form" action="#" method="post" aria-describedby="form-preview-note" data-reveal>
+                    <div class="bo-contact-form-grid">
+                        <div class="bo-contact-field"><label for="contact-first-name">Nombre</label><input id="contact-first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Tu nombre"></div>
+                        <div class="bo-contact-field"><label for="contact-last-name">Apellido</label><input id="contact-last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Tu apellido"></div>
+                        <div class="bo-contact-field"><label for="contact-work-email">Correo electrónico de trabajo</label><input id="contact-work-email" name="workEmail" type="email" autocomplete="email" placeholder="nombre@empresa.com"></div>
+                        <div class="bo-contact-field"><label for="contact-organization">Organización</label><input id="contact-organization" name="organization" type="text" autocomplete="organization" placeholder="Nombre de la organización"></div>
+                        <div class="bo-contact-field"><label for="contact-role">Cargo</label><input id="contact-role" name="role" type="text" autocomplete="organization-title" placeholder="Tu cargo o función"></div>
+                        <div class="bo-contact-field bo-contact-field--wide"><label for="contact-improve">¿Qué te gustaría mejorar?</label><textarea id="contact-improve" name="improvement" rows="3" placeholder="Describe una pregunta, informe, revisión o proceso recurrente."></textarea></div>
+                        <div class="bo-contact-field bo-contact-field--wide"><label for="contact-sources">¿Dónde se encuentra hoy la información relevante?</label><textarea id="contact-sources" name="informationSources" rows="3" placeholder="Documentos, hojas de cálculo, sistemas internos, plataformas u otras fuentes."></textarea></div>
+                        <div class="bo-contact-field bo-contact-field--wide"><label for="contact-other">¿Hay algo más que debamos saber?</label><textarea id="contact-other" name="otherDetails" rows="3" placeholder="Comparte cualquier detalle que nos ayude a entender la situación."></textarea></div>
+                    </div>
+                    <div class="bo-contact-form-actions">
+                        <button class="bo-public-cta bo-contact-submit" type="submit" disabled aria-describedby="form-preview-note">Enviar mensaje <span aria-hidden="true">↗</span></button>
+                        <p class="bo-contact-form-note" id="form-preview-note">Vista previa del formulario: los envíos aún no están conectados.</p>
+                    </div>
+                    <p class="bo-contact-form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bo-what-footer">
+        <div class="bo-what-footer-inner">
+            <a class="bo-what-footer-logo" href="./index.html">blueorder</a>
+            <a href="#contact">Volver arriba ↑</a>
+        </div>
+    </footer>
+
+    <script type="module" src="../assets/js/blueorder-what-we-do.js"></script>
+    <script type="module" src="../assets/js/blueorder-contact.js"></script>
+</body>
+</html>

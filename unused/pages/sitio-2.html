@@ -23,10 +23,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Clarity+City:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./components/blueorder-flow.css">
-    <link rel="stylesheet" href="./components/blueorder-flow-dark.css">
-    <link rel="stylesheet" href="./components/blueorder-prototype-sections.css">
-    <link rel="stylesheet" href="./components/blueorder-prototype-sections-dark.css">
     <style>
         /* Custom Font Utility Classes */
         .clarity-city {
@@ -51,53 +47,47 @@
             color: #f3f4f6;
         }
 
-        /* 1. Hero image background */
+        /* 1. First section polymorphic organic gradient background (Blue to rich red mesh blobs) */
         .hero-polymorphic-bg {
             background-color: #0c102b;
-            background-image:
-                linear-gradient(90deg, rgba(7, 10, 30, 0.58) 0%, rgba(7, 10, 30, 0.28) 58%, rgba(7, 10, 30, 0.18) 100%),
-                url('./hero-bg-6.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
             position: relative;
             overflow: hidden;
         }
 
-        /* Polymorphic blurred glowing shapes */
-        .blob-1 {
+        /* Polymorphic blurred glowing shapes (Warm transparent) */
+        .warm-blob-1 {
             position: absolute;
             top: -10%;
             left: -10%;
             width: 55vw;
             height: 55vw;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(30, 58, 138, 0.2) 60%, transparent 100%);
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, rgba(234, 88, 12, 0.15) 60%, transparent 100%); /* Orange */
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             filter: blur(80px);
             pointer-events: none;
             animation: morph 12s ease-in-out infinite alternate;
         }
 
-        .blob-2 {
+        .warm-blob-2 {
             position: absolute;
             bottom: -20%;
             right: -10%;
             width: 65vw;
             height: 65vw;
-            background: radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, rgba(185, 28, 28, 0.25) 50%, transparent 100%);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(217, 119, 6, 0.1) 50%, transparent 100%); /* Amber/Yellow */
             border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
             filter: blur(90px);
             pointer-events: none;
             animation: morph 15s ease-in-out infinite alternate-reverse;
         }
 
-        .blob-3 {
+        .warm-blob-3 {
             position: absolute;
             top: 30%;
             right: 20%;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.35) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.25) 0%, transparent 70%); /* Rose/Red */
             border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
             filter: blur(70px);
             pointer-events: none;
@@ -137,11 +127,11 @@
         #navbar, #navbar * {
             transition: color 0.5s ease, border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.3s ease;
         }
-
+        
         #navbar {
             background-color: transparent;
         }
-
+        
         /* Dark Theme (For dark sections) */
         #navbar.theme-dark {
             border-bottom-color: rgba(255, 255, 255, 0.05);
@@ -201,34 +191,38 @@
         </div>
     </header>
 
-    <main class="bo-dark-page">
-        <div class="bo-dark-page-atmosphere" aria-hidden="true"></div>
-        <!-- SECCION 1: Polymorphic Blue & Red Gradient Mesh -->
-        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 hero-polymorphic-bg" data-theme="dark">
-            <!-- Ambient SVG Network Background Layer -->
-            <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-                <svg class="network-svg w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="lineGradHero" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.55"></stop>
-                            <stop offset="100%" stop-color="#c084fc" stop-opacity="0.25"></stop>
-                        </linearGradient>
-                    </defs>
-                    <g class="network-group"></g>
-                </svg>
+    <main>
+        <!-- SECCION 1: Video Background -->
+        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 relative overflow-hidden bg-black" data-theme="dark">
+            <!-- Video Background -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+                <source src="../assets/gemini_generated_video_53cb0d38.mp4" type="video/mp4">
+            </video>
+            
+            <!-- Warm Polymorphic Gradient Overlay -->
+            <div id="video-gradient-overlay" class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div class="warm-blob-1"></div>
+                <div class="warm-blob-2"></div>
+                <div class="warm-blob-3"></div>
+                <!-- Linear gradient mapping from bottom to top to ensure text readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-orange-700/95 via-orange-600/75 to-transparent"></div>
             </div>
+
             <div class="max-w-7xl mx-auto w-full my-auto py-24 relative z-10">
                 <div class="inline-block text-xs uppercase tracking-widest text-indigo-200 mb-12 font-semibold">
                     What We Do &mdash; Page Introduction
                 </div>
-
+                
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.12] mb-16 text-white max-w-5xl">
-                    Elevate the way work gets done.
+                    From dispersed sources to a system your team can use and maintain.
                 </h1>
 
                 <div class="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-neutral-200 max-w-4xl">
                     <p>
-                        We help you build AI agents that connect your data, documents, and operating knowledge—so your team can find answers faster, reduce repeated work, and move the business forward.
+                        We work with clients to organize business knowledge, connect the sources required for a specific task, and create repeatable AI-assisted workflows.
+                    </p>
+                    <p class="text-neutral-300">
+                        The result is not a generic chatbot or a demonstration that depends on consultants. It is a bounded working system, tested with the people who will use it and designed for independent operation.
                     </p>
                 </div>
             </div>
@@ -241,83 +235,8 @@
             </div>
         </section>
 
-        <section id="knowledge-flow" class="bo-diagram-section bo-diagram-section--dark" data-theme="dark" aria-label="BlueOrder knowledge flow">
-            <div class="bo-network-layer" aria-hidden="true">
-                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="lineGradDiagram" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.42"></stop>
-                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.18"></stop>
-                        </linearGradient>
-                    </defs>
-                    <g class="network-group"></g>
-                </svg>
-            </div>
-            <blueorder-flow flow-id="bo-dark-flow"></blueorder-flow>
-        </section>
-
-        <div class="bo-prototype-sections" data-theme="dark">
-            <div class="bo-network-layer" aria-hidden="true">
-                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="lineGradPrototype" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.38"></stop>
-                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.16"></stop>
-                        </linearGradient>
-                    </defs>
-                    <g class="network-group"></g>
-                </svg>
-            </div>
-            <section class="bo-principles" id="principles" aria-labelledby="principles-title">
-                <div class="bo-principles-heading"><span class="bo-index">PRINCIPLES</span><h2 id="principles-title">A useful system keeps people in the loop.</h2></div>
-                <div class="bo-principles-grid">
-                    <article class="bo-principle-card bo-principle-knowledge"><div class="bo-principle-top"><span class="bo-index">01</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Trusted knowledge</h3><p>Use approved sources, shared definitions, and visible evidence. When information is incomplete or conflicting, the system should say so.</p></article>
-                    <article class="bo-principle-card bo-principle-repeatable"><div class="bo-principle-top"><span class="bo-index">02</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Repeatable work</h3><p>Turn proven methods into reusable instructions, tools, and checks so good work can travel across people and teams.</p></article>
-                    <article class="bo-principle-card bo-principle-judgment"><div class="bo-principle-top"><span class="bo-index">03</span><span class="bo-principle-mark" aria-hidden="true"></span></div><h3>Human judgment</h3><p>AI supports the work. People remain responsible for interpretation, approval, and important decisions.</p></article>
-                </div>
-            </section>
-
-            <section class="bo-engagement" id="workflow" aria-labelledby="workflow-title">
-                <div class="bo-principles-heading"><span class="bo-index">THE CLIENT WORKFLOW</span><h2 id="workflow-title">How an engagement works.</h2></div>
-                <div class="bo-engagement-grid">
-                    <article class="bo-engagement-card"><span class="bo-index">01</span><h3>Assess</h3><p>Choose one recurring business question. Review the relevant sources, definitions, people, access requirements, current effort, and operating costs.</p></article>
-                    <article class="bo-engagement-card"><span class="bo-index">02</span><h3>Build together</h3><p>Organize the knowledge, configure the retrieval and tools the workflow actually needs, and create a bounded agent or process with the client team.</p></article>
-                    <article class="bo-engagement-card"><span class="bo-index">03</span><h3>Test and practice</h3><p>Run representative questions, compare results with approved sources or calculations, test failure cases, and practice with real participants.</p></article>
-                    <article class="bo-engagement-card"><span class="bo-index">04</span><h3>Hand over</h3><p>Transfer the working assets, maintenance guidance, evaluation cases, and cost controls so the client can operate and improve the system.</p></article>
-                </div>
-                <a class="bo-engagement-cta" href="#contact">Explore what we do <span aria-hidden="true">↗</span></a>
-            </section>
-
-            <section class="bo-contact" id="contact" aria-labelledby="contact-title">
-                <div class="bo-contact-heading"><span class="bo-index">START A CONVERSATION</span><h2 id="contact-title">Bring one recurring question.</h2><p>We’ll help you find a useful place to start.</p></div>
-                <div class="bo-contact-grid">
-                    <form class="bo-contact-form" action="#" method="post" onsubmit="return false">
-                        <div class="bo-form-row"><label>First name<input name="firstName" autocomplete="given-name" required></label><label>Last name<input name="lastName" autocomplete="family-name" required></label></div>
-                        <label>Email<input type="email" name="email" autocomplete="email" required></label>
-                        <label>What would you like to improve?<textarea name="message" rows="3" placeholder="A recurring report, review, or question…" required></textarea></label>
-                        <button type="submit">Send a note <span aria-hidden="true">↗</span></button>
-                    </form>
-                    <div class="bo-calendly" aria-label="Schedule a conversation">
-                        <div class="bo-calendly-top"><span class="bo-calendly-mark" aria-hidden="true">✳</span><div><strong>BlueOrder</strong><span>Introductory conversation</span></div></div>
-                        <div class="bo-calendly-body"><span class="bo-calendly-kicker">CHOOSE A TIME</span><p>Prefer to talk now?</p><a href="#calendly-placeholder">Open the calendar <span aria-hidden="true">↗</span></a><small id="calendly-placeholder">Calendly link will be connected here.</small></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
         <!-- SECCION 2 -->
         <section id="system" class="min-h-screen bg-night-gradient text-neutral-100 flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="dark">
-            <div class="bo-network-layer" aria-hidden="true">
-                <svg class="network-svg" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="lineGradSystem" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#8f9cff" stop-opacity="0.34"></stop>
-                            <stop offset="100%" stop-color="#d5a4ff" stop-opacity="0.14"></stop>
-                        </linearGradient>
-                    </defs>
-                    <g class="network-group"></g>
-                </svg>
-            </div>
             <div class="max-w-7xl mx-auto w-full">
                 <div class="inline-block text-xs uppercase tracking-widest text-indigo-300/70 mb-12 font-semibold">
                     Architecture &mdash; The System
@@ -388,14 +307,125 @@
             </div>
         </section>
 
+        <!-- SECCION 3 -->
+        <section id="workflow" class="min-h-screen bg-grad-3 text-neutral-900 flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="light">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="inline-block text-xs uppercase tracking-widest text-neutral-700 mb-12 font-semibold">
+                    Methodology &mdash; Our Client Workflow
+                </div>
+
+                <div class="space-y-28 pt-8">
+                    <!-- Workflow step 1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
+                        <div class="md:col-span-4">
+                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase I</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Assess the opportunity</h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                                We begin with a paid readiness assessment. Together we choose one recurring decision or task, inspect the source material, identify owners and participants, understand access constraints, and define what a useful result must demonstrate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Workflow step 2 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
+                        <div class="md:col-span-4">
+                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase II</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Build the workflow</h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                                We prepare the agreed knowledge package and configure the retrieval, skills, tools, and agent workflow required for that use case. We use existing provider capabilities where they are sufficient and add custom work only when the evidence justifies it.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Workflow step 3 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
+                        <div class="md:col-span-4">
+                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase III</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Test with the team</h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                                Participants use representative questions and compare the outputs with agreed answers, evidence, and calculations. We test incomplete, stale, conflicting, and denied-access cases. A second participant should be able to repeat and explain the work.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Workflow step 4 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+                        <div class="md:col-span-4">
+                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase IV</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Hand over and maintain</h3>
+                        </div>
+                        <div class="md:col-span-8">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                                We transfer the client-specific assets, configuration, instructions, evaluation cases, update process, and cost-monitoring guidance. Exact ownership, licensing, provider, and infrastructure terms are agreed for each engagement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-neutral-600 uppercase tracking-widest pt-28 border-t border-neutral-800/10 mt-32">
+                <span>Section 03 / 04</span>
+                <a href="#contact" class="hover:text-neutral-900 transition-colors flex items-center gap-2">
+                    Scroll to Engagement <span>↓</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCION 4 -->
+        <section id="contact" class="min-h-screen bg-grad-4 text-white flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="dark">
+            <!-- Ambient SVG Network Background Layer -->
+            <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                <svg class="network-svg w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="lineGradContact" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.55"></stop>
+                            <stop offset="100%" stop-color="#c084fc" stop-opacity="0.25"></stop>
+                        </linearGradient>
+                    </defs>
+                    <g class="network-group"></g>
+                </svg>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full my-auto py-24 relative z-10">
+                <div class="inline-block text-xs uppercase tracking-widest text-indigo-300/70 mb-12 font-semibold">
+                    Initiate Engagement
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-light tracking-tight leading-[1.15] mb-12 text-white max-w-4xl">
+                    Ready to bring order to your operational workflows?
+                </h2>
+
+                <p class="text-xl md:text-2xl font-light text-neutral-300 max-w-3xl mb-16 leading-relaxed">
+                    Let's discuss your readiness assessment and design your first bounded working system together.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 items-start">
+                    <a href="mailto:contact@blueorder.ai" class="px-10 py-5 rounded-full bg-white text-neutral-900 text-sm font-medium tracking-wide hover:bg-neutral-100 transition-all shadow-sm">
+                        contact@blueorder.ai
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-widest pt-16 border-t border-white/10 gap-4 relative z-10">
+                <span class="text-[27px] md:text-[32px] font-medium text-white lowercase text-left flex justify-start items-center" style="font-family: 'Cal Sans', sans-serif; font-weight: 500;">blueorder</span>
+                <span>Section 04 / 04 &mdash; All rights reserved</span>
+                <a href="#hero" class="hover:text-white transition-colors">
+                    Back to top ↑
+                </a>
+            </div>
+        </section>
     </main>
 
-    <script type="module" src="./components/blueorder-flow.js"></script>
-    <script type="module" src="./components/blueorder-dark-parallax.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('navbar');
-
+            
             // Adjust header shadow on scroll
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -407,7 +437,7 @@
 
             // Intersection Observer to detect section backgrounds
             const sections = document.querySelectorAll('section[data-theme]');
-
+            
             const observerOptions = {
                 root: null,
                 // Trigger when a section hits the top 10% of the viewport (where the navbar is)
@@ -437,10 +467,10 @@
 
         // Procedural Animation Script for Moving Network Nodes with Mouse Magnetism
         window.addEventListener('load', () => {
-            function createNetwork(svgElement, groupElement, gradId, motionPreference) {
+            function createNetwork(svgElement, groupElement, gradId) {
                 let width = svgElement.clientWidth;
                 let height = svgElement.clientHeight;
-
+                
                 let mouse = { x: -1000, y: -1000, active: false };
                 // The nearest section parent handles mouse events
                 const section = svgElement.closest('section');
@@ -459,14 +489,14 @@
                         mouse.y = -1000;
                     });
                 }
-
+                
                 let nodes = [];
                 function initNodes() {
                     groupElement.innerHTML = '';
                     nodes = [];
                     width = svgElement.clientWidth;
                     height = svgElement.clientHeight;
-
+                    
                     const nodeCount = Math.floor((width * height) / 25000);
                     for (let i = 0; i < Math.max(15, Math.min(nodeCount, 45)); i++) {
                         nodes.push({
@@ -478,7 +508,7 @@
                             element: null
                         });
                     }
-
+                    
                     nodes.forEach(node => {
                         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                         circle.setAttribute('r', node.radius);
@@ -495,40 +525,40 @@
                 function animateNetwork() {
                     const lines = groupElement.querySelectorAll('line');
                     lines.forEach(l => l.remove());
-
+                    
                     nodes.forEach(node => {
                         node.x += node.vx;
                         node.y += node.vy;
-
+                        
                         if (node.x < 0 || node.x > width) node.vx *= -1;
                         if (node.y < 0 || node.y > height) node.vy *= -1;
-
+                        
                         if (mouse.active) {
                             const dxMouse = mouse.x - node.x;
                             const dyMouse = mouse.y - node.y;
                             const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
                             const magneticRadius = 180;
-
+                            
                             if (distMouse < magneticRadius && distMouse > 5) {
                                 const force = (1 - (distMouse / magneticRadius)) * 0.03;
                                 node.x += dxMouse * force;
                                 node.y += dyMouse * force;
                             }
                         }
-
+                        
                         if(node.element) {
                             node.element.setAttribute('cx', node.x);
                             node.element.setAttribute('cy', node.y);
                         }
                     });
-
+                    
                     const maxDistance = 220;
                     for (let i = 0; i < nodes.length; i++) {
                         for (let j = i + 1; j < nodes.length; j++) {
                             const dx = nodes[i].x - nodes[j].x;
                             const dy = nodes[i].y - nodes[j].y;
                             const dist = Math.sqrt(dx * dx + dy * dy);
-
+                            
                             if (dist < maxDistance) {
                                 const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
                                 line.setAttribute('x1', nodes[i].x);
@@ -543,25 +573,17 @@
                             }
                         }
                     }
-                    if (!motionPreference.matches) {
-                        requestAnimationFrame(animateNetwork);
-                    }
-                }
-                if (motionPreference.matches) {
-                    animateNetwork();
-                } else {
                     requestAnimationFrame(animateNetwork);
                 }
+                requestAnimationFrame(animateNetwork);
             }
 
-            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-            // Initialize every network layer dynamically.
+            // Initialize on both sections dynamically
             const svgs = document.querySelectorAll('.network-svg');
             svgs.forEach((svg) => {
                 const group = svg.querySelector('.network-group');
                 const gradId = svg.querySelector('linearGradient').id;
-                createNetwork(svg, group, gradId, reducedMotion);
+                createNetwork(svg, group, gradId);
             });
         });
     </script>

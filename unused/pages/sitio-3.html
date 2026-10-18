@@ -54,40 +54,40 @@
             overflow: hidden;
         }
 
-        /* Polymorphic blurred glowing shapes (Warm transparent) */
-        .warm-blob-1 {
+        /* Polymorphic blurred glowing shapes */
+        .blob-1 {
             position: absolute;
             top: -10%;
             left: -10%;
             width: 55vw;
             height: 55vw;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.35) 0%, rgba(234, 88, 12, 0.15) 60%, transparent 100%); /* Orange */
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(30, 58, 138, 0.2) 60%, transparent 100%);
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
             filter: blur(80px);
             pointer-events: none;
             animation: morph 12s ease-in-out infinite alternate;
         }
 
-        .warm-blob-2 {
+        .blob-2 {
             position: absolute;
             bottom: -20%;
             right: -10%;
             width: 65vw;
             height: 65vw;
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(217, 119, 6, 0.1) 50%, transparent 100%); /* Amber/Yellow */
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, rgba(185, 28, 28, 0.25) 50%, transparent 100%);
             border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
             filter: blur(90px);
             pointer-events: none;
             animation: morph 15s ease-in-out infinite alternate-reverse;
         }
 
-        .warm-blob-3 {
+        .blob-3 {
             position: absolute;
             top: 30%;
             right: 20%;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(225, 29, 72, 0.25) 0%, transparent 70%); /* Rose/Red */
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.35) 0%, transparent 70%);
             border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
             filter: blur(70px);
             pointer-events: none;
@@ -115,12 +115,12 @@
 
         /* 3. Third gradient: Soft pastel violet to peach */
         .bg-grad-3 {
-            background: linear-gradient(135deg, #8f85b8 0%, #dfb599 50%, #f7f1ec 100%);
+            background-image: linear-gradient(135deg, #8f85b8 0%, #dfb599 50%, #f7f1ec 100%);
         }
 
         /* 4. Fourth gradient: Deep midnight blue */
         .bg-grad-4 {
-            background: linear-gradient(180deg, #1e1b38 0%, #0e0c1a 100%);
+            background-image: linear-gradient(180deg, #1e1b38 0%, #0e0c1a 100%);
         }
 
         /* Navbar Transitions & Themes */
@@ -129,7 +129,7 @@
         }
         
         #navbar {
-            background-color: transparent;
+            background-color: transparent !important;
         }
         
         /* Dark Theme (For dark sections) */
@@ -158,6 +158,36 @@
         #navbar.theme-light .nav-btn { color: #111827; border-color: rgba(17, 24, 39, 0.2); }
         #navbar.theme-light .nav-btn:hover { background-color: #111827; color: #ffffff; }
 
+        /* Navy Gradient Theme Navbar & Text */
+        #navbar.theme-navy-gradient {
+            border-color: rgba(30, 58, 138, 0.15);
+        }
+        #navbar.theme-navy-gradient .nav-logo,
+        #navbar.theme-navy-gradient .nav-link,
+        #navbar.theme-navy-gradient .nav-btn {
+            background-image: linear-gradient(135deg, #1e3a8a 0%, #000000 100%) !important;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text;
+            color: transparent !important;
+        }
+        #navbar.theme-navy-gradient .nav-btn {
+            border-color: #1e3a8a;
+        }
+        #navbar.theme-navy-gradient .nav-btn:hover {
+            background-image: linear-gradient(135deg, #1e3a8a 0%, #000000 100%) !important;
+            -webkit-text-fill-color: #ffffff;
+            color: #ffffff;
+        }
+        
+        .text-navy-gradient {
+            background-image: linear-gradient(135deg, #1e3a8a 0%, #09090b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text;
+            color: transparent !important;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -174,7 +204,7 @@
 <body class="antialiased selection:bg-indigo-500 selection:text-white">
 
     <!-- Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b theme-dark px-8 lg:px-20" id="navbar">
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 theme-dark px-8 lg:px-20" id="navbar">
         <div class="max-w-7xl mx-auto w-full h-28 flex items-center justify-between">
             <a href="#hero" class="nav-logo text-[27px] md:text-[32px] font-medium tracking-tight lowercase text-left flex justify-start items-center" style="font-family: 'Cal Sans', sans-serif; font-weight: 500;">
                 blueorder
@@ -192,20 +222,16 @@
     </header>
 
     <main>
-        <!-- SECCION 1: Video Background -->
-        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 relative overflow-hidden bg-black" data-theme="dark">
-            <!-- Video Background -->
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-                <source src="gemini_generated_video_53cb0d38.mp4" type="video/mp4">
-            </video>
-            
-            <!-- Warm Polymorphic Gradient Overlay -->
-            <div id="video-gradient-overlay" class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div class="warm-blob-1"></div>
-                <div class="warm-blob-2"></div>
-                <div class="warm-blob-3"></div>
-                <!-- Linear gradient mapping from bottom to top to ensure text readability -->
-                <div class="absolute inset-0 bg-gradient-to-t from-orange-700/95 via-orange-600/75 to-transparent"></div>
+        <!-- SECCION 1: Image Background -->
+        <section id="hero" class="min-h-screen text-white flex flex-col justify-between pt-48 pb-36 px-8 lg:px-20 relative overflow-hidden bg-neutral-950" data-theme="dark">
+            <!-- Image Carousel Background Layer -->
+            <div class="absolute inset-0 z-0 bg-neutral-950" id="hero-carousel">
+                <img src="../assets/hero-bg-3.jpg" alt="Background 1" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" />
+                <img src="../assets/hero-bg-4.png" alt="Background 2" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" />
+                <img src="../../assets/images/hero-bg-5.jpg" alt="Background 3" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" />
+                <img src="../../assets/images/hero-bg-6.jpg" alt="Background 4" class="carousel-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" />
+                <!-- Subtle gradient overlay to guarantee text readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none"></div>
             </div>
 
             <div class="max-w-7xl mx-auto w-full my-auto py-24 relative z-10">
@@ -308,9 +334,9 @@
         </section>
 
         <!-- SECCION 3 -->
-        <section id="workflow" class="min-h-screen bg-grad-3 text-neutral-900 flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="light">
+        <section id="workflow" class="min-h-screen bg-grad-3 flex flex-col justify-between py-44 px-8 lg:px-20 relative" data-theme="navy-gradient">
             <div class="max-w-7xl mx-auto w-full">
-                <div class="inline-block text-xs uppercase tracking-widest text-neutral-700 mb-12 font-semibold">
+                <div class="inline-block text-xs uppercase tracking-widest text-navy-gradient opacity-80 mb-12 font-semibold">
                     Methodology &mdash; Our Client Workflow
                 </div>
 
@@ -318,11 +344,11 @@
                     <!-- Workflow step 1 -->
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
                         <div class="md:col-span-4">
-                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase I</span>
-                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Assess the opportunity</h3>
+                            <span class="text-xs font-mono text-navy-gradient opacity-60 block mb-3">Phase I</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-navy-gradient">Assess the opportunity</h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-navy-gradient opacity-80">
                                 We begin with a paid readiness assessment. Together we choose one recurring decision or task, inspect the source material, identify owners and participants, understand access constraints, and define what a useful result must demonstrate.
                             </p>
                         </div>
@@ -331,11 +357,11 @@
                     <!-- Workflow step 2 -->
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
                         <div class="md:col-span-4">
-                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase II</span>
-                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Build the workflow</h3>
+                            <span class="text-xs font-mono text-navy-gradient opacity-60 block mb-3">Phase II</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-navy-gradient">Build the workflow</h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-navy-gradient opacity-80">
                                 We prepare the agreed knowledge package and configure the retrieval, skills, tools, and agent workflow required for that use case. We use existing provider capabilities where they are sufficient and add custom work only when the evidence justifies it.
                             </p>
                         </div>
@@ -344,11 +370,11 @@
                     <!-- Workflow step 3 -->
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start border-b border-neutral-800/10 pb-24">
                         <div class="md:col-span-4">
-                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase III</span>
-                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Test with the team</h3>
+                            <span class="text-xs font-mono text-navy-gradient opacity-60 block mb-3">Phase III</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-navy-gradient">Test with the team</h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-navy-gradient opacity-80">
                                 Participants use representative questions and compare the outputs with agreed answers, evidence, and calculations. We test incomplete, stale, conflicting, and denied-access cases. A second participant should be able to repeat and explain the work.
                             </p>
                         </div>
@@ -357,11 +383,11 @@
                     <!-- Workflow step 4 -->
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
                         <div class="md:col-span-4">
-                            <span class="text-xs font-mono text-neutral-600 block mb-3">Phase IV</span>
-                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-neutral-900">Hand over and maintain</h3>
+                            <span class="text-xs font-mono text-navy-gradient opacity-60 block mb-3">Phase IV</span>
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight text-navy-gradient">Hand over and maintain</h3>
                         </div>
                         <div class="md:col-span-8">
-                            <p class="text-xl md:text-2xl font-light leading-relaxed text-neutral-700">
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-navy-gradient opacity-80">
                                 We transfer the client-specific assets, configuration, instructions, evaluation cases, update process, and cost-monitoring guidance. Exact ownership, licensing, provider, and infrastructure terms are agreed for each engagement.
                             </p>
                         </div>
@@ -369,9 +395,9 @@
                 </div>
             </div>
 
-            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-neutral-600 uppercase tracking-widest pt-28 border-t border-neutral-800/10 mt-32">
+            <div class="max-w-7xl mx-auto w-full flex justify-between items-center text-xs text-navy-gradient opacity-60 uppercase tracking-widest pt-28 border-t border-neutral-800/10 mt-32">
                 <span>Section 03 / 04</span>
-                <a href="#contact" class="hover:text-neutral-900 transition-colors flex items-center gap-2">
+                <a href="#contact" class="hover:text-navy-gradient transition-colors flex items-center gap-2">
                     Scroll to Engagement <span>↓</span>
                 </a>
             </div>
@@ -449,13 +475,8 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const theme = entry.target.getAttribute('data-theme');
-                        if (theme === 'light') {
-                            nav.classList.remove('theme-dark');
-                            nav.classList.add('theme-light');
-                        } else {
-                            nav.classList.remove('theme-light');
-                            nav.classList.add('theme-dark');
-                        }
+                        nav.classList.remove("theme-light", "theme-dark", "theme-navy-gradient");
+                        nav.classList.add("theme-" + theme);
                     }
                 });
             }, observerOptions);
@@ -585,6 +606,20 @@
                 const gradId = svg.querySelector('linearGradient').id;
                 createNetwork(svg, group, gradId);
             });
+        });
+    </script>
+    <script>
+        // Hero Image Carousel Logic (3 seconds)
+        window.addEventListener('load', () => {
+            const carouselImages = document.querySelectorAll("#hero-carousel .carousel-img");
+            if (carouselImages.length > 1) {
+                let currentImgIndex = 0;
+                setInterval(() => {
+                    carouselImages[currentImgIndex].classList.replace('opacity-100', 'opacity-0');
+                    currentImgIndex = (currentImgIndex + 1) % carouselImages.length;
+                    carouselImages[currentImgIndex].classList.replace('opacity-0', 'opacity-100');
+                }, 3000);
+            }
         });
     </script>
 </body>
